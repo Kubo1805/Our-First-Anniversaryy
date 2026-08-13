@@ -97,11 +97,37 @@ body {
 }
 
 
+.heart-photo {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* =====================================================
+   FLOATING PHOTOS
+===================================================== */
+
+.floating-photos {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
 .photo {
     position: absolute;
 
-    width: 270px;
-    height: 270px;
+    bottom: -320px;
+
+    width: var(--size);
+    height: var(--size);
 
     filter:
         drop-shadow(
@@ -109,7 +135,7 @@ body {
         );
 
     animation:
-        floatingPhoto 7s ease-in-out infinite;
+        photoRise var(--duration) linear forwards;
 }
 
 
@@ -122,34 +148,44 @@ body {
 
 
 /* =====================================================
-   FIRST TEST PHOTO
+   PHOTO RISING ANIMATION
 ===================================================== */
 
-.photo-1 {
-    top: 8%;
-    left: 10%;
+@keyframes photoRise {
 
-    transform: rotate(-6deg);
+    0% {
+        bottom: -320px;
 
-    animation-delay: -2s;
-}
+        opacity: 0;
 
+        transform:
+            translateX(0)
+            rotate(var(--rotation));
+    }
 
-/* =====================================================
-   PHOTO FLOATING ANIMATION
-===================================================== */
-
-@keyframes floatingPhoto {
-
-    0%,
-    100% {
-        margin-top: 0;
+    8% {
+        opacity: 1;
     }
 
     50% {
-        margin-top: -18px;
+        transform:
+            translateX(var(--drift))
+            rotate(var(--rotation));
     }
 
+    92% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: calc(100vh + 320px);
+
+        opacity: 0;
+
+        transform:
+            translateX(calc(var(--drift) * -0.4))
+            rotate(var(--rotation));
+    }
 }
 
 
