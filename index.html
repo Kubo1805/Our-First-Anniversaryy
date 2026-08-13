@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,371 +10,112 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
     <main class="lock-screen">
 
-        <!-- Floating photos -->
+        <!-- =========================================
+             BACKGROUND DECORATION
+        ========================================== -->
+
+        <div class="background-glow"></div>
+
+
+        <!-- =========================================
+             FLOATING HEART PHOTOS
+        ========================================== -->
+
         <div class="floating-photos">
 
+            <!-- TEST PHOTO -->
             <div class="photo photo-1">
-    <svg viewBox="0 0 100 100" class="heart-photo" aria-label="A memory of us">
-        <defs>
-            <clipPath id="heartClip">
-                <path d="
-                    M50 88
-                    C45 82 10 60 10 32
-                    C10 17 20 8 33 8
-                    C41 8 47 12 50 19
-                    C53 12 59 8 67 8
-                    C80 8 90 17 90 32
-                    C90 60 55 82 50 88
-                    Z
-                "/>
-            </clipPath>
-        </defs>
 
-        <image
-            href="images/photo1.jpg"
-            width="100"
-            height="100"
-            preserveAspectRatio="xMidYMid slice"
-            clip-path="url(#heartClip)"
-        />
-    </svg>
-</div>
+                <svg
+                    class="heart-photo"
+                    viewBox="0 0 100 100"
+                    aria-label="A memory of us"
+                >
+
+                    <defs>
+
+                        <clipPath id="heartClip1">
+
+                            <path
+                                d="
+                                    M50 88
+                                    C44 82 10 60 10 32
+                                    C10 17 20 8 33 8
+                                    C41 8 47 12 50 19
+                                    C53 12 59 8 67 8
+                                    C80 8 90 17 90 32
+                                    C90 60 56 82 50 88
+                                    Z
+                                "
+                            />
+
+                        </clipPath>
+
+                    </defs>
+
+
+                    <image
+                        href="images/photo1.jpg"
+                        width="100"
+                        height="100"
+                        preserveAspectRatio="xMidYMid slice"
+                        clip-path="url(#heartClip1)"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <!--
+                We'll add the other photos later.
+            -->
 
         </div>
 
 
-        <!-- Center lock -->
-       <button class="heart-lock" id="heartLock" aria-label="Unlock our story">
+        <!-- =========================================
+             CENTRAL HEART LOCK
+        ========================================== -->
 
-    <svg
-        class="lock-svg"
-        viewBox="0 0 300 320"
-        xmlns="http://www.w3.org/2000/svg"
-    >
+        <button
+            class="heart-lock"
+            id="heartLock"
+            aria-label="Unlock our story"
+        >
 
-        <defs>
-
-            <!-- Main pink body -->
-            <linearGradient
-                id="lockPink"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="1"
+            <img
+                src="images/heart-lock.png"
+                alt=""
             >
-                <stop offset="0%" stop-color="#ffafd0"/>
-                <stop offset="45%" stop-color="#f784ad"/>
-                <stop offset="100%" stop-color="#e95c91"/>
-            </linearGradient>
 
-            <!-- Shackle gradient -->
-            <linearGradient
-                id="shacklePink"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="1"
-            >
-                <stop offset="0%" stop-color="#f4b0cd"/>
-                <stop offset="100%" stop-color="#d66f9e"/>
-            </linearGradient>
-
-            <!-- Small shadow -->
-            <filter id="lockShadow">
-                <feDropShadow
-                    dx="0"
-                    dy="12"
-                    stdDeviation="9"
-                    flood-color="#9b4670"
-                    flood-opacity="0.22"
-                />
-            </filter>
-
-        </defs>
+        </button>
 
 
         <!-- =========================================
-     SHACKLE
-========================================= -->
+             UNLOCK TEXT
+        ========================================== -->
 
-<path
-    d="
-        M91 128
-        V81
-
-        C91 35
-        117 17
-        150 17
-
-        C183 17
-        209 35
-        209 81
-
-        V128
-    "
-    fill="none"
-    stroke="#d978a5"
-    stroke-width="28"
-    stroke-linecap="round"
-/>
-
-<!-- Shackle glossy edge -->
-<path
-    d="
-        M98 78
-        C98 47
-        117 29
-        145 26
-    "
-    fill="none"
-    stroke="#f7c0d8"
-    stroke-width="7"
-    stroke-linecap="round"
-    opacity="0.8"
-/>
-
-<!-- Tiny shackle sparkle -->
-<path
-    d="
-        M190 42
-        L193 48
-        L199 51
-        L193 54
-        L190 60
-        L187 54
-        L181 51
-        L187 48
-        Z
-    "
-    fill="#fff5fa"
-    opacity="0.85"
-/>
-
-
-        <!-- HEART BODY -->
-
-       <path
-    d="
-        M150 292
-
-        C130 280 30 220 30 128
-
-        C30 82 62 54 102 54
-
-        C126 54 142 66 150 84
-
-        C158 66 174 54 198 54
-
-        C238 54 270 82 270 128
-
-        C270 220 170 280 150 292
-
-        Z
-    "
-    fill="url(#lockPink)"
-    stroke="#d95588"
-    stroke-width="4"
-    filter="url(#lockShadow)"
-/>
-
-
-
-       <!-- =========================================
-     HEART SURFACE DETAILS
-========================================= -->
-
-<!-- Main soft highlight -->
-<path
-    d="
-        M82 119
-        C84 91 103 76 125 72
-    "
-    fill="none"
-    stroke="#ffd7e8"
-    stroke-width="11"
-    stroke-linecap="round"
-    opacity="0.75"
-/>
-
-<!-- Small highlight underneath -->
-<path
-    d="
-        M72 139
-        C71 151 75 162 80 171
-    "
-    fill="none"
-    stroke="#ffbdd6"
-    stroke-width="5"
-    stroke-linecap="round"
-    opacity="0.55"
-/>
-
-
-<!-- =========================================
-     KEYHOLE
-========================================= -->
-
-<!-- Keyhole outer rim -->
-<circle
-    cx="150"
-    cy="145"
-    r="27"
-    fill="#a94473"
-    stroke="#8f3b65"
-    stroke-width="3"
-/>
-
-<!-- Keyhole inner face -->
-<circle
-    cx="150"
-    cy="145"
-    r="21"
-    fill="#bd5684"
-/>
-
-<!-- Keyhole shine -->
-<ellipse
-    cx="143"
-    cy="137"
-    rx="7"
-    ry="5"
-    fill="#e98fb2"
-    opacity="0.8"
-/>
-
-<!-- Keyhole stem -->
-<path
-    d="
-        M139 159
-        L136 202
-
-        C135 210
-        141 214
-        150 214
-
-        C159 214
-        165 210
-        164 202
-
-        L161 159
-
-        Z
-    "
-    fill="#ad4777"
-    stroke="#8f3b65"
-    stroke-width="3"
-/>
-
-<!-- Stem highlight -->
-<path
-    d="
-        M143 169
-        L141 198
-    "
-    fill="none"
-    stroke="#d8749f"
-    stroke-width="4"
-    stroke-linecap="round"
-    opacity="0.65"
-/>
-
-
-<!-- =========================================
-     LITTLE SPARKLES
-========================================= -->
-
-<!-- Big left sparkle -->
-<path
-    d="
-        M91 160
-        L96 171
-        L107 176
-        L96 181
-        L91 192
-        L86 181
-        L75 176
-        L86 171
-        Z
-    "
-    fill="#fff5fa"
-/>
-
-<!-- Big right sparkle -->
-<path
-    d="
-        M207 115
-        L211 123
-        L219 127
-        L211 131
-        L207 139
-        L203 131
-        L195 127
-        L203 123
-        Z
-    "
-    fill="#fff5fa"
-/>
-
-<!-- Tiny sparkle -->
-<path
-    d="
-        M116 105
-        L119 111
-        L125 114
-        L119 117
-        L116 123
-        L113 117
-        L107 114
-        L113 111
-        Z
-    "
-    fill="#fff5fa"
-    opacity="0.9"
-/>
-
-
-<!-- =========================================
-     SMALL LIGHT DOTS
-========================================= -->
-
-<circle
-    cx="111"
-    cy="145"
-    r="4"
-    fill="#ffddeb"
-/>
-
-<circle
-    cx="224"
-    cy="165"
-    r="4"
-    fill="#ffe6f0"
-/>
-
-<circle
-    cx="196"
-    cy="95"
-    r="5"
-    fill="#ffdce9"
-/>
-
-    </svg>
-
-</button>
-
-
-        <!-- Instruction -->
         <p class="unlock-text">
             tap to unlock ♡
         </p>
 
 
-        <!-- Heart particles -->
-        <div class="heart-rays" id="heartRays"></div>
+        <!-- =========================================
+             RADIATING HEARTS
+        ========================================== -->
+
+        <div
+            class="heart-rays"
+            id="heartRays"
+            aria-hidden="true"
+        ></div>
+
 
     </main>
 
@@ -381,4 +123,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
