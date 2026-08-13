@@ -166,135 +166,47 @@ body {
 .heart-lock {
     position: relative;
 
-    width: 220px;
-    height: 240px;
+    width: 270px;
+    height: 290px;
 
     border: none;
-    background: none;
+    background: transparent;
+
+    padding: 0;
 
     cursor: pointer;
 
     z-index: 10;
 
-    animation: lockPulse 3s ease-in-out infinite;
-
     -webkit-tap-highlight-color: transparent;
+
+    animation: lockPulse 3.5s ease-in-out infinite;
 }
 
-.lock-heart {
-    position: absolute;
+.lock-svg {
+    width: 100%;
+    height: 100%;
 
-    left: 20px;
-    bottom: 0;
-
-    width: 180px;
-    height: 165px;
-
-    background: linear-gradient(
-        145deg,
-        #ff8fb5,
-        #e95d8c
-    );
-
-    transform: rotate(-45deg);
-
-    border-radius: 30px;
-
-    filter: drop-shadow(
-        0 12px 18px rgba(120, 40, 70, 0.20)
-    );
-}
-
-
-/* Heart lobes */
-
-.lock-heart::before,
-.lock-heart::after {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    background: inherit;
-
-    border-radius: 50%;
-}
-
-.lock-heart::before {
-    top: -90px;
-    left: 0;
-}
-
-.lock-heart::after {
-    top: 0;
-    left: 90px;
-}
-
-
-/* Make sure the keyhole sits above the heart */
-
-.lock-heart .keyhole {
-    position: absolute;
-
-    z-index: 5;
-
-    width: 25px;
-    height: 42px;
-
-    background: #71304c;
-
-    border-radius: 50% 50% 45% 45%;
-
-    top: 63px;
-    left: 77px;
-
-    transform: rotate(45deg);
-}
-
-.keyhole::after {
-    content: "";
-
-    position: absolute;
-
-    width: 10px;
-    height: 25px;
-
-    background: #71304c;
-
-    left: 8px;
-    top: 25px;
-
-    border-radius: 5px;
+    display: block;
 }
 
 
 /* =========================
-   LOCK SHACKLE
+   LOCK PULSE
 ========================= */
 
-.lock-shackle {
-    position: absolute;
+@keyframes lockPulse {
 
-    z-index: 8;
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
-    top: 0;
-    left: 55px;
-
-    width: 110px;
-    height: 115px;
-
-    border: 18px solid #d98aa8;
-
-    border-bottom: none;
-
-    border-radius: 70px 70px 0 0;
-
-    filter: drop-shadow(
-        0 5px 8px rgba(120, 40, 70, 0.15)
-    );
+    50% {
+        transform: scale(1.035);
+    }
 }
+
 
 
 /* =========================
