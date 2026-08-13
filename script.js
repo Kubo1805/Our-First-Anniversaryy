@@ -4,6 +4,354 @@
 
 const heartLock = document.getElementById("heartLock");
 const heartRays = document.getElementById("heartRays");
+const floatingPhotos = document.getElementById("floatingPhotos");
+
+
+/* =====================================================
+   FLOATING PHOTO SYSTEM
+===================================================== */
+
+const photoSources = [
+
+    "images/photo1.jpg",
+
+    // Add more photos later:
+    // "images/photo2.jpg",
+    // "images/photo3.jpg",
+    // "images/photo4.jpg",
+    // "images/photo5.jpg",
+    // "images/photo6.jpg",
+
+];
+
+
+function createFloatingPhoto() {
+
+    /* =========================================
+       PHOTO CONTAINER
+    ========================================= */
+
+    const photo =
+        document.createElement("div");
+
+    photo.classList.add("photo");
+
+
+    /* =========================================
+       SVG HEART
+    ========================================= */
+
+    const svg =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg"
+        );
+
+    svg.setAttribute(
+        "viewBox",
+        "0 0 100 100"
+    );
+
+    svg.classList.add(
+        "heart-photo"
+    );
+
+
+    /* =========================================
+       UNIQUE HEART CLIP
+    ========================================= */
+
+    const defs =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "defs"
+        );
+
+
+    const clipPath =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "clipPath"
+        );
+
+
+    const clipId =
+        `heartClip-${Date.now()}-${Math.random()}`;
+
+
+    clipPath.setAttribute(
+        "id",
+        clipId
+    );
+
+
+    const heartPath =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path"
+        );
+
+
+    heartPath.setAttribute(
+        "d",
+        `
+        M50 88
+        C44 82 10 60 10 32
+        C10 17 20 8 33 8
+        C41 8 47 12 50 19
+        C53 12 59 8 67 8
+        C80 8 90 17 90 32
+        C90 60 56 82 50 88
+        Z
+        `
+    );
+
+
+    clipPath.appendChild(
+        heartPath
+    );
+
+    defs.appendChild(
+        clipPath
+    );
+
+
+    /* =========================================
+       PHOTO IMAGE
+    ========================================= */
+
+    const image =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "image"
+        );
+
+
+    const source =
+        photoSources[
+            Math.floor(
+                Math.random() *
+                photoSources.length
+            )
+        ];
+
+
+    image.setAttribute(
+        "href",
+        source
+    );
+
+    image.setAttribute(
+        "width",
+        "100"
+    );
+
+    image.setAttribute(
+        "height",
+        "100"
+    );
+
+    image.setAttribute(
+        "preserveAspectRatio",
+        "xMidYMid slice"
+    );
+
+    image.setAttribute(
+        "clip-path",
+        `url(#${clipId})`
+    );
+
+
+    /* =========================================
+       PINK HEART BORDER
+    ========================================= */
+
+    const borderHeart =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path"
+        );
+
+
+    borderHeart.setAttribute(
+        "d",
+        `
+        M50 88
+        C44 82 10 60 10 32
+        C10 17 20 8 33 8
+        C41 8 47 12 50 19
+        C53 12 59 8 67 8
+        C80 8 90 17 90 32
+        C90 60 56 82 50 88
+        Z
+        `
+    );
+
+
+    borderHeart.setAttribute(
+        "fill",
+        "#ff9fc8"
+    );
+
+
+    borderHeart.setAttribute(
+        "stroke",
+        "#f47eaa"
+    );
+
+
+    borderHeart.setAttribute(
+        "stroke-width",
+        "3.5"
+    );
+
+
+    /* =========================================
+       BUILD SVG
+    ========================================= */
+
+    svg.appendChild(
+        defs
+    );
+
+    svg.appendChild(
+        borderHeart
+    );
+
+    svg.appendChild(
+        image
+    );
+
+    photo.appendChild(
+        svg
+    );
+
+    floatingPhotos.appendChild(
+        photo
+    );
+
+
+    /* =========================================
+       RANDOM POSITION
+    ========================================= */
+
+    const left =
+        Math.random() * 100;
+
+
+    photo.style.left =
+        `${left}%`;
+
+
+    /* =========================================
+       RANDOM SIZE
+    ========================================= */
+
+    const size =
+        130 +
+        Math.random() * 100;
+
+
+    photo.style.setProperty(
+        "--size",
+        `${size}px`
+    );
+
+
+    /* =========================================
+       RANDOM SPEED
+    ========================================= */
+
+    const duration =
+        9 +
+        Math.random() * 8;
+
+
+    photo.style.setProperty(
+        "--duration",
+        `${duration}s`
+    );
+
+
+    /* =========================================
+       RANDOM ROTATION
+    ========================================= */
+
+    const rotation =
+        -12 +
+        Math.random() * 24;
+
+
+    photo.style.setProperty(
+        "--rotation",
+        `${rotation}deg`
+    );
+
+
+    /* =========================================
+       RANDOM SIDEWAYS DRIFT
+    ========================================= */
+
+    const drift =
+        -80 +
+        Math.random() * 160;
+
+
+    photo.style.setProperty(
+        "--drift",
+        `${drift}px`
+    );
+
+
+    /* =========================================
+       REMOVE WHEN FINISHED
+    ========================================= */
+
+    setTimeout(() => {
+
+        photo.remove();
+
+    }, (duration + 0.5) * 1000);
+
+}
+
+
+/* =====================================================
+   START PHOTO STREAM
+===================================================== */
+
+function startPhotoStream() {
+
+    /*
+       Create a few photos at the beginning
+       so the screen isn't empty.
+    */
+
+    for (let i = 0; i < 6; i++) {
+
+        setTimeout(() => {
+
+            createFloatingPhoto();
+
+        }, i * 1800);
+
+    }
+
+
+    /*
+       Keep creating new photos.
+    */
+
+    setInterval(() => {
+
+        createFloatingPhoto();
+
+    }, 2200);
+
+}
+
+
+startPhotoStream();
 
 
 /* =====================================================
