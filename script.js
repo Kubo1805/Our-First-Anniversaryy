@@ -1,14 +1,18 @@
-const heartRays = document.getElementById("heartRays");
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
 const heartLock = document.getElementById("heartLock");
+const heartRays = document.getElementById("heartRays");
 
 
-// ==========================================
-// CREATE A WAVE OF LITTLE HEARTS
-// ==========================================
+/* =====================================================
+   CREATE ONE RING OF HEARTS
+===================================================== */
 
-function createHeartRay() {
+function createHeartRayWave(isBig = false) {
 
-    const numberOfHearts = 8;
+    const numberOfHearts = isBig ? 14 : 8;
 
     for (let i = 0; i < numberOfHearts; i++) {
 
@@ -18,76 +22,139 @@ function createHeartRay() {
 
         heart.textContent = "♡";
 
+
+        /* ---------------------------------------------
+           Position around the lock
+        --------------------------------------------- */
+
         const angle =
             (Math.PI * 2 / numberOfHearts) * i;
 
-        const distance = 140 + Math.random() * 60;
+
+        const baseDistance =
+            isBig
+                ? 180
+                : 145;
+
+
+        const distance =
+            baseDistance +
+            Math.random() * 70;
+
 
         const x =
             Math.cos(angle) * distance;
 
+
         const y =
             Math.sin(angle) * distance;
 
-        heart.style.setProperty("--x", `${x}px`);
-        heart.style.setProperty("--y", `${y}px`);
+
+        /* ---------------------------------------------
+           CSS variables
+        --------------------------------------------- */
+
+        heart.style.setProperty(
+            "--x",
+            `${x}px`
+        );
+
+
+        heart.style.setProperty(
+            "--y",
+            `${y}px`
+        );
+
+
+        heart.style.setProperty(
+            "--size",
+            `${10 + Math.random() * 12}px`
+        );
+
 
         heart.style.animationDelay =
-            `${Math.random() * 0.5}s`;
+            `${Math.random() * 0.25}s`;
+
+
+        /* ---------------------------------------------
+           Add to page
+        --------------------------------------------- */
 
         heartRays.appendChild(heart);
 
 
-        // Remove after animation
+        /* ---------------------------------------------
+           Clean up
+        --------------------------------------------- */
 
         setTimeout(() => {
+
             heart.remove();
+
         }, 3500);
+
     }
+
 }
 
 
-// ==========================================
-// STARTING HEART RAYS
-// ==========================================
+/* =====================================================
+   INITIAL HEART WAVE
+===================================================== */
 
-createHeartRay();
+createHeartRayWave();
+
+
+/* =====================================================
+   REPEATING HEART WAVES
+===================================================== */
 
 setInterval(() => {
-    createHeartRay();
+
+    createHeartRayWave();
+
 }, 3500);
 
 
-// ==========================================
-// CLICK / TAP LOCK
-// ==========================================
+/* =====================================================
+   LOCK TAP
+===================================================== */
 
 heartLock.addEventListener("click", () => {
 
-    console.log("LOCK CLICKED ♡");
+    /* ---------------------------------------------
+       Restart animation
+    --------------------------------------------- */
 
-    heartLock.style.animation = "none";
+    heartLock.classList.remove("unlocking");
 
-    heartLock.animate(
-        [
-            {
-                transform: "scale(1)"
-            },
-            {
-                transform: "scale(0.92)"
-            },
-            {
-                transform: "scale(1.08)"
-            },
-            {
-                transform: "scale(1)"
-            }
-        ],
-        {
-            duration: 500,
-            easing: "ease-out"
-        }
-    );
 
-    createHeartRay();
+    /*
+       Force browser to recognize that the animation
+       was removed before adding it again.
+    */
+
+    void heartLock.offsetWidth;
+
+
+    heartLock.classList.add("unlocking");
+
+
+    /* ---------------------------------------------
+       Bigger burst of hearts
+    --------------------------------------------- */
+
+    createHeartRayWave(true);
+
+
+    /* ---------------------------------------------
+       Remove animation class afterward
+    --------------------------------------------- */
+
+    setTimeout(() => {
+
+        heartLock.classList.remove("unlocking");
+
+    }, 700);
+
 });
