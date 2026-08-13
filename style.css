@@ -170,6 +170,7 @@ body {
     height: 370px;
 
     border: none;
+    outline: none;
     background: transparent;
 
     padding: 0;
