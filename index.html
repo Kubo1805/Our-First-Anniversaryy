@@ -17,28 +17,31 @@
         <div class="floating-photos">
 
             <div class="photo photo-1">
-                <img src="images/photo1.jpg" alt="A memory of us">
-            </div>
+    <svg viewBox="0 0 100 100" class="heart-photo" aria-label="A memory of us">
+        <defs>
+            <clipPath id="heartClip">
+                <path d="
+                    M50 88
+                    C45 82 10 60 10 32
+                    C10 17 20 8 33 8
+                    C41 8 47 12 50 19
+                    C53 12 59 8 67 8
+                    C80 8 90 17 90 32
+                    C90 60 55 82 50 88
+                    Z
+                "/>
+            </clipPath>
+        </defs>
 
-            <div class="photo photo-2">
-                <img src="images/photo2.jpg" alt="A memory of us">
-            </div>
-
-            <div class="photo photo-3">
-                <img src="images/photo3.jpg" alt="A memory of us">
-            </div>
-
-            <div class="photo photo-4">
-                <img src="images/photo4.jpg" alt="A memory of us">
-            </div>
-
-            <div class="photo photo-5">
-                <img src="images/photo5.jpg" alt="A memory of us">
-            </div>
-
-            <div class="photo photo-6">
-                <img src="images/photo6.jpg" alt="A memory of us">
-            </div>
+        <image
+            href="images/photo1.jpg"
+            width="100"
+            height="100"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#heartClip)"
+        />
+    </svg>
+</div>
 
         </div>
 
