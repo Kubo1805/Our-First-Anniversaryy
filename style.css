@@ -79,23 +79,33 @@ body {
     animation: floatPhoto 7s ease-in-out infinite;
 }
 
-.photo img {
+.photo {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    animation: floatPhoto 7s ease-in-out infinite;
+
+    filter: drop-shadow(
+        0 8px 12px rgba(100, 30, 70, 0.18)
+    );
+}
+
+.heart-photo {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
 }
-
 
 /* Individual photo positions */
 
 .photo-1 {
     top: 10%;
     left: 12%;
+
     animation-delay: 0s;
-    transform: rotate(-8deg);
 }
 
 .photo-2 {
