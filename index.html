@@ -47,17 +47,210 @@
 
 
         <!-- Center lock -->
-        <button class="heart-lock" id="heartLock" aria-label="Unlock our story">
+       <button class="heart-lock" id="heartLock" aria-label="Unlock our story">
 
-            <div class="lock-shackle"></div>
+    <svg
+        class="lock-svg"
+        viewBox="0 0 300 320"
+        xmlns="http://www.w3.org/2000/svg"
+    >
 
-            <div class="lock-heart">
+        <defs>
 
-                <div class="keyhole"></div>
+            <!-- Main pink body -->
+            <linearGradient
+                id="lockPink"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+            >
+                <stop offset="0%" stop-color="#ffafd0"/>
+                <stop offset="45%" stop-color="#f784ad"/>
+                <stop offset="100%" stop-color="#e95c91"/>
+            </linearGradient>
 
-            </div>
+            <!-- Shackle gradient -->
+            <linearGradient
+                id="shacklePink"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+            >
+                <stop offset="0%" stop-color="#f4b0cd"/>
+                <stop offset="100%" stop-color="#d66f9e"/>
+            </linearGradient>
 
-        </button>
+            <!-- Small shadow -->
+            <filter id="lockShadow">
+                <feDropShadow
+                    dx="0"
+                    dy="12"
+                    stdDeviation="9"
+                    flood-color="#9b4670"
+                    flood-opacity="0.22"
+                />
+            </filter>
+
+        </defs>
+
+
+        <!-- SHACKLE -->
+
+        <path
+            d="M91 128
+               V81
+               C91 35 117 17 150 17
+               C183 17 209 35 209 81
+               V128"
+            fill="none"
+            stroke="url(#shacklePink)"
+            stroke-width="25"
+            stroke-linecap="round"
+        />
+
+        <!-- Shackle highlight -->
+
+        <path
+            d="M96 79
+               C96 43 118 27 150 27"
+            fill="none"
+            stroke="#ffd9e9"
+            stroke-width="7"
+            stroke-linecap="round"
+            opacity="0.7"
+        />
+
+
+        <!-- HEART BODY -->
+
+        <path
+            d="
+                M150 282
+
+                C137 271 46 213 46 130
+
+                C46 89 76 63 111 63
+
+                C130 63 143 72 150 87
+
+                C157 72 170 63 189 63
+
+                C224 63 254 89 254 130
+
+                C254 213 163 271 150 282
+
+                Z
+            "
+            fill="url(#lockPink)"
+            stroke="#d95588"
+            stroke-width="4"
+            filter="url(#lockShadow)"
+        />
+
+
+        <!-- Soft heart highlight -->
+
+        <path
+            d="
+                M74 126
+                C75 95 95 80 118 80
+            "
+            fill="none"
+            stroke="#ffd7e6"
+            stroke-width="12"
+            stroke-linecap="round"
+            opacity="0.48"
+        />
+
+
+        <!-- Keyhole circle -->
+
+        <circle
+            cx="150"
+            cy="145"
+            r="24"
+            fill="#b94c7e"
+        />
+
+        <circle
+            cx="144"
+            cy="138"
+            r="7"
+            fill="#f7a9c8"
+            opacity="0.55"
+        />
+
+
+        <!-- Keyhole stem -->
+
+        <path
+            d="
+                M138 160
+                L134 205
+                C134 213 141 217 150 217
+                C159 217 166 213 166 205
+                L162 160
+                Z
+            "
+            fill="#b94c7e"
+        />
+
+
+        <!-- SPARKLES -->
+
+        <path
+            d="
+                M89 104
+                L94 115
+                L105 120
+                L94 125
+                L89 136
+                L84 125
+                L73 120
+                L84 115
+                Z
+            "
+            fill="#fff3f8"
+            opacity="0.9"
+        />
+
+        <path
+            d="
+                M213 103
+                L217 112
+                L226 116
+                L217 120
+                L213 130
+                L209 120
+                L200 116
+                L209 112
+                Z
+            "
+            fill="#fff3f8"
+            opacity="0.8"
+        />
+
+        <circle
+            cx="111"
+            cy="91"
+            r="6"
+            fill="#fff3f8"
+            opacity="0.75"
+        />
+
+        <circle
+            cx="197"
+            cy="136"
+            r="5"
+            fill="#fff3f8"
+            opacity="0.65"
+        />
+
+    </svg>
+
+</button>
 
 
         <!-- Instruction -->
