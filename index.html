@@ -25,53 +25,11 @@
         <!-- =========================================
              FLOATING HEART PHOTOS
         ========================================== -->
-
-        <div class="floating-photos">
-
-            <!-- TEST PHOTO -->
-            <div class="photo photo-1">
-
-                <svg
-                    class="heart-photo"
-                    viewBox="0 0 100 100"
-                    aria-label="A memory of us"
-                >
-
-                    <defs>
-
-                        <clipPath id="heartClip1">
-
-                            <path
-                                d="
-                                    M50 88
-                                    C44 82 10 60 10 32
-                                    C10 17 20 8 33 8
-                                    C41 8 47 12 50 19
-                                    C53 12 59 8 67 8
-                                    C80 8 90 17 90 32
-                                    C90 60 56 82 50 88
-                                    Z
-                                "
-                            />
-
-                        </clipPath>
-
-                    </defs>
-
-
-                    <image
-                        href="images/photo1.jpg"
-                        width="100"
-                        height="100"
-                        preserveAspectRatio="xMidYMid slice"
-                        clip-path="url(#heartClip1)"
-                    />
-
-                </svg>
-
-            </div>
-
-
+<div
+    class="floating-photos"
+    id="floatingPhotos"
+    aria-hidden="true"
+></div>
             <!--
                 We'll add the other photos later.
             -->
