@@ -17,6 +17,12 @@ const letterPage =
 const lockScreen =
     document.querySelector(".lock-screen");
 
+const continueButton =
+    document.getElementById("continueButton");
+
+const surprisePage =
+    document.getElementById("surprisePage");
+
 
 /* =====================================================
    FLOATING PHOTO SYSTEM
@@ -535,5 +541,24 @@ heartLock.addEventListener("click", () => {
         );
 
     }, 650);
+
+});
+
+/* =====================================================
+   LETTER -> SURPRISE PAGE
+===================================================== */
+
+continueButton.addEventListener("click", () => {
+
+    /* Hide the letter */
+    letterPage.classList.remove("visible");
+
+
+    /* Wait a tiny moment, then show surprise page */
+    setTimeout(() => {
+
+        surprisePage.classList.add("visible");
+
+    }, 350);
 
 });
