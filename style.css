@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 /* =====================================================
-
    RESET
 ===================================================== */
 
@@ -869,70 +868,115 @@ body {
 }
 
 
-/* =========================================
-   LETTER CARD
-========================================= */
+/* =====================================================
+   COZY LETTER CARD
+===================================================== */
 
 .letter-card {
-    width: min(760px, 92vw);
+    position: relative;
 
-    min-height: 70vh;
+    width: min(720px, 92vw);
+
+    min-height: 78vh;
 
     padding:
-        70px
-        75px
+        72px
+        85px
         80px;
 
-background:
-    linear-gradient(
-        145deg,
-        #fffaf6 0%,
-        #fff4f6 55%,
-        #ffedf3 100%
-    );
+    background:
+        radial-gradient(
+            circle at 15% 12%,
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(255, 255, 255, 0) 28%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(255, 201, 222, 0.22) 0%,
+            rgba(255, 201, 222, 0) 35%
+        ),
+        linear-gradient(
+            145deg,
+            #fffaf7 0%,
+            #fff6f6 45%,
+            #fff0f4 100%
+        );
 
-    border-radius: 24px;
+    border-radius: 28px;
 
-   box-shadow:
-       0 25px 70px rgba(123, 54, 82, 0.16),
-       0 5px 18px rgba(123, 54, 82, 0.07);
-
-    position: relative;
+    box-shadow:
+        0 28px 70px rgba(120, 54, 82, 0.14),
+        0 7px 20px rgba(120, 54, 82, 0.07);
 
     overflow: hidden;
 }
 
 
-/* Subtle paper glow */
+/* =====================================================
+   PAPER TEXTURE
+===================================================== */
 
 .letter-card::before {
     content: "";
 
     position: absolute;
 
-    width: 320px;
-    height: 320px;
-
-    top: -170px;
-    right: -150px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255, 200, 220, 0.25);
+    inset: 0;
 
     pointer-events: none;
+
+    opacity: 0.45;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(180, 120, 145, 0.045) 0 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 70% 60%,
+            rgba(180, 120, 145, 0.035) 0 1px,
+            transparent 1px
+        );
+
+    background-size:
+        38px 38px,
+        52px 52px;
 }
 
 
-/* =========================================
-   MAIN TITLE
-========================================= */
+/* =====================================================
+   DECORATIVE TOP CORNER
+===================================================== */
+
+.letter-card::after {
+    content: "♡";
+
+    position: absolute;
+
+    top: 22px;
+    right: 30px;
+
+    color: rgba(226, 104, 148, 0.22);
+
+    font-family: "Italianno", cursive;
+
+    font-size: 44px;
+
+    transform: rotate(10deg);
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
 
 .anniversary-title {
     position: relative;
 
-    margin-bottom: 8px;
+    margin: 0 auto 6px;
+
+    max-width: 650px;
 
     text-align: center;
 
@@ -946,9 +990,9 @@ background:
         86px
     );
 
-    line-height: 0.95;
-
     font-weight: 400;
+
+    line-height: 0.95;
 
     letter-spacing: 1px;
 
@@ -957,33 +1001,35 @@ background:
 }
 
 
-/* =========================================
+/* =====================================================
    LITTLE HEART
-========================================= */
+===================================================== */
 
 .title-heart {
+    margin: 10px 0 42px;
+
     text-align: center;
 
     color: #e56f9e;
 
-    font-size: 28px;
+    font-family: "Italianno", cursive;
 
-    margin-bottom: 45px;
+    font-size: 34px;
 
-    opacity: 0.8;
+    opacity: 0.75;
 }
 
 
-/* =========================================
+/* =====================================================
    LETTER CONTENT
-========================================= */
+===================================================== */
 
 .letter-content {
-    max-width: 620px;
+    max-width: 570px;
 
     margin: 0 auto;
 
-    color: #70445a;
+    color: #754658;
 
     font-family:
         "Playfair Display",
@@ -992,125 +1038,82 @@ background:
 
     font-size: 18px;
 
-    line-height: 1.95;
+    line-height: 2;
 
-    letter-spacing: 0.15px;
+    letter-spacing: 0.12px;
 }
 
 
-/* =========================================
-   LETTER OPENING
-========================================= */
+/* =====================================================
+   OPENING
+===================================================== */
 
 .letter-opening {
-    margin-bottom: 26px;
+    margin-bottom: 24px;
 
     color: #b64f7a;
 
-    font-family:
-        "Italianno",
-        cursive;
+    font-family: "Italianno", cursive;
 
-    font-size: 42px;
+    font-size: 46px;
 
     font-weight: 400;
 
     line-height: 1;
-
-    letter-spacing: 0.5px;
 }
 
 
-/* =========================================
+/* =====================================================
    PARAGRAPHS
-========================================= */
+===================================================== */
 
 .letter-content p {
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 }
 
 
-/* =========================================
-   HYBRID ANIMATION
-========================================= */
+/* =====================================================
+   SIGNATURE
+===================================================== */
 
-.letter-opening,
-.letter-first-line,
-.letter-rest,
 .letter-signoff {
-    opacity: 0;
+    margin-top: 42px;
 
-    transform:
-        translateY(14px);
+    text-align: right;
 }
 
-
-/* Opening */
-
-.letter-page.visible .letter-opening {
-    animation:
-        letterAppear
-        0.8s
-        ease
-        0.7s
-        forwards;
-}
-
-
-/* First sentence */
-
-.letter-page.visible .letter-first-line {
-    animation:
-        letterAppear
-        0.8s
-        ease
-        1.25s
-        forwards;
-}
-
-
-/* Rest of letter */
-
-.letter-page.visible .letter-rest {
-    animation:
-        letterAppear
-        1s
-        ease
-        2.0s
-        forwards;
-}
-
-
-/* Signoff */
-
-.letter-page.visible .letter-signoff {
-    animation:
-        letterAppear
-        0.9s
-        ease
-        2.8s
-        forwards;
-}
-
-
-/* =========================================
-   YOUR KUNAL
-========================================= */
 
 .your-kunal {
-    margin-top: 14px;
+    margin-top: 8px;
 
     color: #c65382;
 
-    font-family:
-        "Italianno",
-        cursive;
+    font-family: "Italianno", cursive;
 
-    font-size: 42px;
+    font-size: 48px;
 
     font-style: normal;
 
     line-height: 1;
+}
+
+
+/* =====================================================
+   LITTLE DECORATIONS
+===================================================== */
+
+.letter-signoff::after {
+    content: "♡";
+
+    display: block;
+
+    margin-top: 10px;
+
+    color: rgba(214, 89, 133, 0.45);
+
+    font-family: "Italianno", cursive;
+
+    font-size: 30px;
 }
 
 
