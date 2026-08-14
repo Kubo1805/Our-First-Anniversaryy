@@ -250,7 +250,7 @@ body {
 .lock-shackle {
     position: absolute;
 
-    left: 50%;
+    left: calc(50% - 5px);
     top: -70px;
 
     width: 250px;
