@@ -548,13 +548,12 @@ heartLock.addEventListener("click", () => {
    LETTER -> SURPRISE PAGE
 ===================================================== */
 
-continueButton.addEventListener("click", () => {
+continueButton.addEventListener("click", (event) => {
 
-    /* Hide the letter */
+    event.preventDefault();
+
     letterPage.classList.remove("visible");
 
-
-    /* Wait a tiny moment, then show surprise page */
     setTimeout(() => {
 
         surprisePage.classList.add("visible");
