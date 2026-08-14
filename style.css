@@ -1323,18 +1323,18 @@ body {
 
     font-size:
         clamp(
-            38px,
-            5vw,
-            58px
+            34px,
+            4.5vw,
+            54px
         );
 
     font-weight: 500;
 
-    line-height: 1.15;
+    font-style: italic;
 
-    letter-spacing: 2px;
+    line-height: 1.25;
 
-    text-transform: uppercase;
+    letter-spacing: 0.5px;
 
     text-shadow:
         0 2px 8px
