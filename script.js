@@ -514,3 +514,43 @@ heartLock.addEventListener("click", () => {
     }, 700);
 
 });
+
+/* =====================================================
+   LOCK OPENING
+===================================================== */
+
+heartLock.addEventListener("click", () => {
+
+    /* Prevent repeated taps during the animation */
+    if (heartLock.classList.contains("unlocking")) {
+        return;
+    }
+
+
+    /* Restart the animation */
+    heartLock.classList.remove("unlocking");
+
+    void heartLock.offsetWidth;
+
+    heartLock.classList.add("unlocking");
+
+
+    /* Bigger heart burst */
+    createHeartRayWave(true);
+
+
+    /*
+       We'll eventually use this point
+       to move to page 2.
+
+       For now we leave it here so
+       we can perfect the animation first.
+    */
+
+    setTimeout(() => {
+
+        heartLock.classList.remove("unlocking");
+
+    }, 900);
+
+});
