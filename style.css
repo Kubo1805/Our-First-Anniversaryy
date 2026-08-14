@@ -823,10 +823,19 @@ body {
 
     background:
         radial-gradient(
-            circle at center,
-            #f8c6da 0%,
-            #efb1cc 45%,
-            #dfa0c0 100%
+            circle at 20% 20%,
+            rgba(255, 235, 244, 0.55),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(255, 201, 221, 0.30),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #efb0ca,
+            #e9a9c5
         );
 
     opacity: 0;
@@ -835,8 +844,7 @@ body {
 
     pointer-events: none;
 
-    transform:
-        scale(1.03);
+    transform: scale(1.03);
 
     transition:
         opacity 1s ease,
@@ -1060,6 +1068,20 @@ body {
     font-weight: 400;
 
     line-height: 1;
+}
+
+/* =====================================================
+   FIRST SENTENCE
+===================================================== */
+
+.letter-first-line {
+    font-family: "Italianno", cursive;
+
+    font-size: 31px;
+
+    line-height: 1.25;
+
+    color: #a94c74;
 }
 
 
