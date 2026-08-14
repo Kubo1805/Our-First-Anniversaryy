@@ -2,9 +2,20 @@
    ELEMENTS
 ===================================================== */
 
-const heartLock = document.getElementById("heartLock");
-const heartRays = document.getElementById("heartRays");
-const floatingPhotos = document.getElementById("floatingPhotos");
+const heartLock =
+    document.getElementById("heartLock");
+
+const heartRays =
+    document.getElementById("heartRays");
+
+const floatingPhotos =
+    document.getElementById("floatingPhotos");
+
+const letterPage =
+    document.getElementById("letterPage");
+
+const lockScreen =
+    document.querySelector(".lock-screen");
 
 
 /* =====================================================
@@ -12,6 +23,7 @@ const floatingPhotos = document.getElementById("floatingPhotos");
 ===================================================== */
 
 const photoSources = [
+
     "images/photo1.jpg",
     "images/photo2.jpg",
     "images/photo3.jpg",
@@ -30,6 +42,7 @@ const photoSources = [
     "images/photo16.jpg",
     "images/photo17.jpg",
     "images/photo18.jpg"
+
 ];
 
 
@@ -246,7 +259,6 @@ function createFloatingPhoto() {
     const left =
         Math.random() * 100;
 
-
     photo.style.left =
         `${left}%`;
 
@@ -258,7 +270,6 @@ function createFloatingPhoto() {
     const size =
         130 +
         Math.random() * 100;
-
 
     photo.style.setProperty(
         "--size",
@@ -274,7 +285,6 @@ function createFloatingPhoto() {
         9 +
         Math.random() * 8;
 
-
     photo.style.setProperty(
         "--duration",
         `${duration}s`
@@ -289,7 +299,6 @@ function createFloatingPhoto() {
         -12 +
         Math.random() * 24;
 
-
     photo.style.setProperty(
         "--rotation",
         `${rotation}deg`
@@ -303,7 +312,6 @@ function createFloatingPhoto() {
     const drift =
         -80 +
         Math.random() * 160;
-
 
     photo.style.setProperty(
         "--drift",
@@ -330,10 +338,7 @@ function createFloatingPhoto() {
 
 function startPhotoStream() {
 
-    /*
-       Create a few photos at the beginning
-       so the screen isn't empty.
-    */
+    /* Initial batch */
 
     for (let i = 0; i < 6; i++) {
 
@@ -346,9 +351,7 @@ function startPhotoStream() {
     }
 
 
-    /*
-       Keep creating new photos.
-    */
+    /* Continuous stream */
 
     setInterval(() => {
 
@@ -363,25 +366,32 @@ startPhotoStream();
 
 
 /* =====================================================
-   CREATE ONE RING OF HEARTS
+   HEART RAYS
 ===================================================== */
 
 function createHeartRayWave(isBig = false) {
 
-    const numberOfHearts = isBig ? 14 : 8;
+    const numberOfHearts =
+        isBig
+            ? 14
+            : 8;
+
 
     for (let i = 0; i < numberOfHearts; i++) {
 
-        const heart = document.createElement("span");
+        const heart =
+            document.createElement("span");
 
-        heart.classList.add("ray-heart");
+        heart.classList.add(
+            "ray-heart"
+        );
 
         heart.textContent = "♡";
 
 
-        /* ---------------------------------------------
-           Position around the lock
-        --------------------------------------------- */
+        /* -----------------------------------------
+           Direction
+        ----------------------------------------- */
 
         const angle =
             (Math.PI * 2 / numberOfHearts) * i;
@@ -406,21 +416,19 @@ function createHeartRayWave(isBig = false) {
             Math.sin(angle) * distance;
 
 
-        /* ---------------------------------------------
-           CSS variables
-        --------------------------------------------- */
+        /* -----------------------------------------
+           CSS Variables
+        ----------------------------------------- */
 
         heart.style.setProperty(
             "--x",
             `${x}px`
         );
 
-
         heart.style.setProperty(
             "--y",
             `${y}px`
         );
-
 
         heart.style.setProperty(
             "--size",
@@ -432,16 +440,18 @@ function createHeartRayWave(isBig = false) {
             `${Math.random() * 0.25}s`;
 
 
-        /* ---------------------------------------------
-           Add to page
-        --------------------------------------------- */
+        /* -----------------------------------------
+           Add heart
+        ----------------------------------------- */
 
-        heartRays.appendChild(heart);
+        heartRays.appendChild(
+            heart
+        );
 
 
-        /* ---------------------------------------------
-           Clean up
-        --------------------------------------------- */
+        /* -----------------------------------------
+           Cleanup
+        ----------------------------------------- */
 
         setTimeout(() => {
 
@@ -473,139 +483,57 @@ setInterval(() => {
 
 
 /* =====================================================
-   LOCK TAP
+   FINAL LOCK -> LETTER TRANSITION
 ===================================================== */
+
+let lockHasOpened = false;
+
 
 heartLock.addEventListener("click", () => {
 
-    /* ---------------------------------------------
-       Restart animation
-    --------------------------------------------- */
+    /* -----------------------------------------
+       Prevent repeated taps
+    ----------------------------------------- */
 
-    heartLock.classList.remove("unlocking");
-
-
-    /*
-       Force browser to recognize that the animation
-       was removed before adding it again.
-    */
-
-    void heartLock.offsetWidth;
-
-
-    heartLock.classList.add("unlocking");
-
-
-    /* ---------------------------------------------
-       Bigger burst of hearts
-    --------------------------------------------- */
-
-    createHeartRayWave(true);
-
-
-    /* ---------------------------------------------
-       Remove animation class afterward
-    --------------------------------------------- */
-
-    setTimeout(() => {
-
-        heartLock.classList.remove("unlocking");
-
-    }, 700);
-
-});
-
-/* =====================================================
-   LOCK OPENING
-===================================================== */
-
-heartLock.addEventListener("click", () => {
-
-    /* Prevent multiple taps during the animation */
-    if (heartLock.classList.contains("unlocking")) {
+    if (lockHasOpened) {
         return;
     }
 
 
-    /* Restart animation cleanly */
-    heartLock.classList.remove("unlocking");
-
-    void heartLock.offsetWidth;
-
-    heartLock.classList.add("unlocking");
+    lockHasOpened = true;
 
 
-    /* Big burst of hearts */
-    createHeartRayWave(true);
+    /* -----------------------------------------
+       Open lock
+    ----------------------------------------- */
+
+    heartLock.classList.add(
+        "unlocking"
+    );
 
 
-    /* Remove animation class afterward */
-
-    setTimeout(() => {
-
-        heartLock.classList.remove("unlocking");
-
-    }, 900);
-
-});
-
-/* =====================================================
-   LOCK -> LETTER TRANSITION
-===================================================== */
-
-const letterPage =
-    document.getElementById("letterPage");
-
-
-heartLock.addEventListener("click", () => {
-
-    /* Prevent tapping it multiple times */
-    if (heartLock.classList.contains("unlocking")) {
-        return;
-    }
-
-
-    /* ---------------------------------------------
-       Start lock opening
-    --------------------------------------------- */
-
-    heartLock.classList.add("unlocking");
-
-
-    /* ---------------------------------------------
-       Big burst of hearts
-    --------------------------------------------- */
+    /* -----------------------------------------
+       Big heart burst
+    ----------------------------------------- */
 
     createHeartRayWave(true);
 
 
-    /* ---------------------------------------------
-       Let the shackle open first,
-       then begin the page transition
-    --------------------------------------------- */
+    /* -----------------------------------------
+       Fade Page 1 + show Page 2
+    ----------------------------------------- */
 
     setTimeout(() => {
 
-        /* Fade out Page 1 */
-        document
-            .querySelector(".lock-screen")
-            .classList.add("transitioning");
+        lockScreen.classList.add(
+            "transitioning"
+        );
 
 
-        /* Bring in Page 2 */
-        letterPage.classList.add("visible");
+        letterPage.classList.add(
+            "visible"
+        );
 
-    }, 500);
-
-
-    /* ---------------------------------------------
-       Clean up lock animation
-    --------------------------------------------- */
-
-    setTimeout(() => {
-
-        heartLock.classList.remove("unlocking");
-
-    }, 900);
+    }, 650);
 
 });
