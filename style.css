@@ -251,23 +251,20 @@ body {
     position: absolute;
 
     left: 50%;
-    top: -24px;
+    top: -70px;
 
     width: 300px;
     height: auto;
 
-    transform:
-        translateX(-50%)
-        translateY(-40)
-        rotate(0deg);
-
-    transform-origin: 50% 78%;
+    transform: translateX(-50%);
 
     display: block;
 
     z-index: 2;
 
     pointer-events: none;
+
+    transform-origin: 50% 78%;
 }
 
 
