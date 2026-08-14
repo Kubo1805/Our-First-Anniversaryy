@@ -2,265 +2,347 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Our Story ♡</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
 
 <body>
 
+
+    <!-- =================================================
+         PAGE 1 — LOCK SCREEN
+    ================================================== -->
+
     <main class="lock-screen">
 
+
         <!-- =========================================
-             BACKGROUND DECORATION
+             BACKGROUND GLOW
         ========================================== -->
 
         <div class="background-glow"></div>
 
 
         <!-- =========================================
-     DREAMY SKY BACKGROUND
-========================================= -->
+             DREAMY SKY
+        ========================================== -->
 
-<div class="dreamy-sky" aria-hidden="true">
-
-<svg
-    class="moon"
-    viewBox="0 0 220 220"
-    aria-hidden="true"
->
-    <defs>
-
-        <!-- Proper crescent mask -->
-        <mask id="crescentMask">
-
-            <rect
-                width="220"
-                height="220"
-                fill="black"
-            />
-
-            <!-- Moon -->
-            <circle
-                cx="105"
-                cy="110"
-                r="78"
-                fill="white"
-            />
-
-            <!-- Cutout -->
-            <circle
-                cx="142"
-                cy="92"
-                r="78"
-                fill="black"
-            />
-
-        </mask>
-
-        <!-- Moon coloring -->
-        <radialGradient
-            id="moonGradient"
-            cx="35%"
-            cy="30%"
+        <div
+            class="dreamy-sky"
+            aria-hidden="true"
         >
-            <stop
-                offset="0%"
-                stop-color="#fff7fb"
-            />
-
-            <stop
-                offset="65%"
-                stop-color="#ffdce9"
-            />
-
-            <stop
-                offset="100%"
-                stop-color="#efb5cf"
-            />
-        </radialGradient>
-
-    </defs>
 
 
-    <rect
-        width="220"
-        height="220"
-        fill="url(#moonGradient)"
-        mask="url(#crescentMask)"
-    />
+            <!-- =====================================
+                 MOON
+            ====================================== -->
 
-</svg>
+            <svg
+                class="moon"
+                viewBox="0 0 220 220"
+                aria-hidden="true"
+            >
 
-<!-- =========================================
-     DREAMY CLOUDS
-========================================= -->
+                <defs>
 
-<svg class="cloud cloud-1" viewBox="0 0 360 120" aria-hidden="true">
-    <path d="
-        M18 82
-        C28 72 43 68 58 70
-        C66 50 84 39 104 41
-        C118 25 138 19 157 25
-        C175 15 198 20 211 35
-        C227 29 246 34 257 47
-        C274 42 294 48 304 61
-        C319 62 334 70 343 82
-        C313 95 279 98 243 95
-        C205 101 165 99 130 96
-        C94 101 55 98 18 82
-        Z
-    "/>
-</svg>
+                    <mask id="crescentMask">
 
+                        <rect
+                            width="220"
+                            height="220"
+                            fill="black"
+                        />
 
-<svg class="cloud cloud-2" viewBox="0 0 360 120" aria-hidden="true">
-    <path d="
-        M18 82
-        C28 72 43 68 58 70
-        C66 50 84 39 104 41
-        C118 25 138 19 157 25
-        C175 15 198 20 211 35
-        C227 29 246 34 257 47
-        C274 42 294 48 304 61
-        C319 62 334 70 343 82
-        C313 95 279 98 243 95
-        C205 101 165 99 130 96
-        C94 101 55 98 18 82
-        Z
-    "/>
-</svg>
+                        <circle
+                            cx="105"
+                            cy="110"
+                            r="78"
+                            fill="white"
+                        />
+
+                        <circle
+                            cx="142"
+                            cy="92"
+                            r="78"
+                            fill="black"
+                        />
+
+                    </mask>
 
 
-<svg class="cloud cloud-3" viewBox="0 0 360 120" aria-hidden="true">
-    <path d="
-        M18 82
-        C28 72 43 68 58 70
-        C66 50 84 39 104 41
-        C118 25 138 19 157 25
-        C175 15 198 20 211 35
-        C227 29 246 34 257 47
-        C274 42 294 48 304 61
-        C319 62 334 70 343 82
-        C313 95 279 98 243 95
-        C205 101 165 99 130 96
-        C94 101 55 98 18 82
-        Z
-    "/>
-</svg>
+                    <radialGradient
+                        id="moonGradient"
+                        cx="35%"
+                        cy="30%"
+                    >
+
+                        <stop
+                            offset="0%"
+                            stop-color="#fff7fb"
+                        />
+
+                        <stop
+                            offset="65%"
+                            stop-color="#ffdce9"
+                        />
+
+                        <stop
+                            offset="100%"
+                            stop-color="#efb5cf"
+                        />
+
+                    </radialGradient>
+
+                </defs>
 
 
-<svg class="cloud cloud-4" viewBox="0 0 360 120" aria-hidden="true">
-    <path d="
-        M18 82
-        C28 72 43 68 58 70
-        C66 50 84 39 104 41
-        C118 25 138 19 157 25
-        C175 15 198 20 211 35
-        C227 29 246 34 257 47
-        C274 42 294 48 304 61
-        C319 62 334 70 343 82
-        C313 95 279 98 243 95
-        C205 101 165 99 130 96
-        C94 101 55 98 18 82
-        Z
-    "/>
-</svg>
+                <rect
+                    width="220"
+                    height="220"
+                    fill="url(#moonGradient)"
+                    mask="url(#crescentMask)"
+                />
+
+            </svg>
 
 
-<svg class="cloud cloud-5" viewBox="0 0 360 120" aria-hidden="true">
-    <path d="
-        M18 82
-        C28 72 43 68 58 70
-        C66 50 84 39 104 41
-        C118 25 138 19 157 25
-        C175 15 198 20 211 35
-        C227 29 246 34 257 47
-        C274 42 294 48 304 61
-        C319 62 334 70 343 82
-        C313 95 279 98 243 95
-        C205 101 165 99 130 96
-        C94 101 55 98 18 82
-        Z
-    "/>
-</svg>
+            <!-- =====================================
+                 CLOUD 1
+            ====================================== -->
+
+            <svg
+                class="cloud cloud-1"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
 
 
-<svg class="cloud cloud-6" viewBox="0 0 360 120" aria-hidden="true">
-    <path d="
-        M18 82
-        C28 72 43 68 58 70
-        C66 50 84 39 104 41
-        C118 25 138 19 157 25
-        C175 15 198 20 211 35
-        C227 29 246 34 257 47
-        C274 42 294 48 304 61
-        C319 62 334 70 343 82
-        C313 95 279 98 243 95
-        C205 101 165 99 130 96
-        C94 101 55 98 18 82
-        Z
-    "/>
-</svg>
+            <!-- =====================================
+                 CLOUD 2
+            ====================================== -->
 
-    <!-- Tiny stars -->
-    <div class="star star-1">✦</div>
-    <div class="star star-2">✦</div>
-    <div class="star star-3">✦</div>
-    <div class="star star-4">·</div>
-    <div class="star star-5">·</div>
+            <svg
+                class="cloud cloud-2"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
 
-</div>
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
+
+
+            <!-- =====================================
+                 CLOUD 3
+            ====================================== -->
+
+            <svg
+                class="cloud cloud-3"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
+
+
+            <!-- =====================================
+                 CLOUD 4
+            ====================================== -->
+
+            <svg
+                class="cloud cloud-4"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
+
+
+            <!-- =====================================
+                 CLOUD 5
+            ====================================== -->
+
+            <svg
+                class="cloud cloud-5"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
+
+
+            <!-- =====================================
+                 CLOUD 6
+            ====================================== -->
+
+            <svg
+                class="cloud cloud-6"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
+
+
+            <!-- =====================================
+                 STARS
+            ====================================== -->
+
+            <div class="star star-1">✦</div>
+            <div class="star star-2">✦</div>
+            <div class="star star-3">✦</div>
+            <div class="star star-4">·</div>
+            <div class="star star-5">·</div>
+
+        </div>
 
 
         <!-- =========================================
              FLOATING HEART PHOTOS
         ========================================== -->
-<div
-    class="floating-photos"
-    id="floatingPhotos"
-    aria-hidden="true"
-></div>
-            <!--
-                We'll add the other photos later.
-            -->
 
-        </div>
+        <div
+            class="floating-photos"
+            id="floatingPhotos"
+            aria-hidden="true"
+        ></div>
 
 
+        <!-- =========================================
+             HEART LOCK
+        ========================================== -->
+
+        <button
+            type="button"
+            class="heart-lock"
+            id="heartLock"
+            aria-label="Unlock our story"
+        >
+
+            <!-- Shackle -->
+
+            <img
+                class="lock-shackle"
+                src="images/SHACKLE.png"
+                alt=""
+                aria-hidden="true"
+            >
 
 
-<!-- =========================================
-     ANIMATED HEART LOCK
-========================================= -->
+            <!-- Heart body -->
 
-<button
-    class="heart-lock"
-    id="heartLock"
-    aria-label="Unlock our story"
->
+            <img
+                class="lock-body"
+                src="images/PADLOCK BODY.png"
+                alt=""
+                aria-hidden="true"
+            >
 
-    <!-- Shackle -->
-    <img
-        class="lock-shackle"
-        src="images/SHACKLE.png"
-        alt=""
-        aria-hidden="true"
-    >
-
-    <!-- Heart body -->
-    <img
-        class="lock-body"
-        src="images/PADLOCK BODY.png"
-        alt=""
-        aria-hidden="true"
-    >
-
-</button>
+        </button>
 
 
         <!-- =========================================
@@ -273,7 +355,7 @@
 
 
         <!-- =========================================
-             RADIATING HEARTS
+             HEART RAYS
         ========================================== -->
 
         <div
@@ -285,343 +367,456 @@
 
     </main>
 
-    <!-- =========================================
-     ANNIVERSARY LETTER
-========================================= -->
 
-<section class="letter-page" id="letterPage">
 
-    <div class="letter-card">
+    <!-- =================================================
+         PAGE 2 — ANNIVERSARY LETTER
+    ================================================== -->
 
-        <h1 class="anniversary-title">
-            Happy Anniversary, My Gracie
-        </h1>
+    <section
+        class="letter-page"
+        id="letterPage"
+    >
 
-        <div class="title-heart">♡</div>
+        <div class="letter-card">
 
-        <div class="letter-content">
 
-            <h2 class="letter-opening">
-                My Princess,
-            </h2>
+            <!-- =====================================
+                 TITLE
+            ====================================== -->
 
-            <!-- =================================
-                 YOUR LETTER GOES HERE
-            ================================== -->
+            <h1 class="anniversary-title">
+                Happy Anniversary, My Gracie
+            </h1>
 
-            <p class="letter-first-line" id="letterFirstLine">
-                This is where your first sentence will go.
-            </p>
 
-            <div class="letter-rest" id="letterRest">
+            <div class="title-heart">
+                ♡
+            </div>
 
-                <p>
-                    This is where the rest of your letter
-                    will go. For now, this is just
-                    placeholder text.
+
+            <!-- =====================================
+                 LETTER CONTENT
+            ====================================== -->
+
+            <div class="letter-content">
+
+
+                <h2 class="letter-opening">
+                    My Princess,
+                </h2>
+
+
+                <!-- First handwritten line -->
+
+                <p
+                    class="letter-first-line"
+                    id="letterFirstLine"
+                >
+                    This is where your first sentence will go.
                 </p>
 
-                <p>
-                    You can write as many paragraphs here
-                    as you want.
-                </p>
+
+                <!-- Rest of letter -->
+
+                <div
+                    class="letter-rest"
+                    id="letterRest"
+                >
+
+                    <p>
+                        This is where the rest of your letter
+                        will go. For now, this is just
+                        placeholder text.
+                    </p>
+
+                    <p>
+                        You can write as many paragraphs here
+                        as you want.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================
+                     SIGNATURE
+                ================================== -->
+
+                <div
+                    class="letter-signoff"
+                    id="letterSignoff"
+                >
+
+                    <p>
+                        With all my love,
+                    </p>
+
+                    <p class="your-kunal">
+                        Your Kunal
+                    </p>
+
+                </div>
+
 
             </div>
 
-            <div class="letter-signoff" id="letterSignoff">
 
-                <p>
-                    With all my love,
-                </p>
+            <!-- =====================================
+                 NEXT PAGE ARROW
+            ====================================== -->
 
-                <p class="your-kunal">
-                    Your Kunal
-                </p>
+            <button
+                type="button"
+                class="letter-next-button"
+                id="continueButton"
+                aria-label="Continue for a surprise"
+            >
 
-            </div>
+                <img
+                    src="images/PINK HEART.png"
+                    alt=""
+                >
 
-            <!-- =========================================
-     CONTINUE TO SURPRISE
-========================================= -->
+            </button>
 
-<button
-    type="button"
-    class="letter-next-button"
-    id="continueButton"
-    aria-label="Continue for a surprise"
->
-    <img
-        src="images/PINK HEART.png"
-        alt=""
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 3 — SURPRISE PAGE
+    ================================================== -->
+
+    <section
+        class="surprise-page"
+        id="surprisePage"
     >
-</button>
 
-    <!-- =========================================
-     SURPRISE PAGE
-========================================= -->
 
-<section
-    class="surprise-page"
-    id="surprisePage"
->
-    <!-- =========================================
-     DREAMY SKY FOR SURPRISE PAGE
-========================================= -->
+        <!-- =========================================
+             SURPRISE SKY
+        ========================================== -->
 
-<div class="surprise-sky" aria-hidden="true">
+        <div
+            class="surprise-sky"
+            aria-hidden="true"
+        >
 
-    <!-- Moon -->
-    <svg
-        class="moon"
-        viewBox="0 0 220 220"
-    >
-        <defs>
 
-            <mask id="surpriseCrescentMask">
+            <!-- =====================================
+                 SURPRISE MOON
+            ====================================== -->
+
+            <svg
+                class="moon"
+                viewBox="0 0 220 220"
+                aria-hidden="true"
+            >
+
+                <defs>
+
+                    <mask id="surpriseCrescentMask">
+
+                        <rect
+                            width="220"
+                            height="220"
+                            fill="black"
+                        />
+
+                        <circle
+                            cx="105"
+                            cy="110"
+                            r="78"
+                            fill="white"
+                        />
+
+                        <circle
+                            cx="142"
+                            cy="92"
+                            r="78"
+                            fill="black"
+                        />
+
+                    </mask>
+
+
+                    <radialGradient
+                        id="surpriseMoonGradient"
+                        cx="35%"
+                        cy="30%"
+                    >
+
+                        <stop
+                            offset="0%"
+                            stop-color="#fff7fb"
+                        />
+
+                        <stop
+                            offset="65%"
+                            stop-color="#ffdce9"
+                        />
+
+                        <stop
+                            offset="100%"
+                            stop-color="#efb5cf"
+                        />
+
+                    </radialGradient>
+
+                </defs>
+
 
                 <rect
                     width="220"
                     height="220"
-                    fill="black"
+                    fill="url(#surpriseMoonGradient)"
+                    mask="url(#surpriseCrescentMask)"
                 />
 
-                <circle
-                    cx="105"
-                    cy="110"
-                    r="78"
-                    fill="white"
-                />
+            </svg>
 
-                <circle
-                    cx="142"
-                    cy="92"
-                    r="78"
-                    fill="black"
-                />
 
-            </mask>
+            <!-- =====================================
+                 SURPRISE CLOUDS
+            ====================================== -->
 
-            <radialGradient
-                id="surpriseMoonGradient"
-                cx="35%"
-                cy="30%"
+            <svg
+                class="cloud cloud-1"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
             >
 
-                <stop
-                    offset="0%"
-                    stop-color="#fff7fb"
-                />
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
 
-                <stop
-                    offset="65%"
-                    stop-color="#ffdce9"
-                />
-
-                <stop
-                    offset="100%"
-                    stop-color="#efb5cf"
-                />
-
-            </radialGradient>
-
-        </defs>
-
-        <rect
-            width="220"
-            height="220"
-            fill="url(#surpriseMoonGradient)"
-            mask="url(#surpriseCrescentMask)"
-        />
-
-    </svg>
+            </svg>
 
 
-    <!-- Clouds -->
+            <svg
+                class="cloud cloud-2"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
 
-    <svg
-        class="cloud cloud-1"
-        viewBox="0 0 360 120"
-        aria-hidden="true"
-    >
-        <path d="
-            M18 82
-            C28 72 43 68 58 70
-            C66 50 84 39 104 41
-            C118 25 138 19 157 25
-            C175 15 198 20 211 35
-            C227 29 246 34 257 47
-            C274 42 294 48 304 61
-            C319 62 334 70 343 82
-            C313 95 279 98 243 95
-            C205 101 165 99 130 96
-            C94 101 55 98 18 82
-            Z
-        "/>
-    </svg>
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
 
-
-    <svg
-        class="cloud cloud-2"
-        viewBox="0 0 360 120"
-        aria-hidden="true"
-    >
-        <path d="
-            M18 82
-            C28 72 43 68 58 70
-            C66 50 84 39 104 41
-            C118 25 138 19 157 25
-            C175 15 198 20 211 35
-            C227 29 246 34 257 47
-            C274 42 294 48 304 61
-            C319 62 334 70 343 82
-            C313 95 279 98 243 95
-            C205 101 165 99 130 96
-            C94 101 55 98 18 82
-            Z
-        "/>
-    </svg>
+            </svg>
 
 
-    <svg
-        class="cloud cloud-3"
-        viewBox="0 0 360 120"
-        aria-hidden="true"
-    >
-        <path d="
-            M18 82
-            C28 72 43 68 58 70
-            C66 50 84 39 104 41
-            C118 25 138 19 157 25
-            C175 15 198 20 211 35
-            C227 29 246 34 257 47
-            C274 42 294 48 304 61
-            C319 62 334 70 343 82
-            C313 95 279 98 243 95
-            C205 101 165 99 130 96
-            C94 101 55 98 18 82
-            Z
-        "/>
-    </svg>
+            <svg
+                class="cloud cloud-3"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
 
 
-    <svg
-        class="cloud cloud-4"
-        viewBox="0 0 360 120"
-        aria-hidden="true"
-    >
-        <path d="
-            M18 82
-            C28 72 43 68 58 70
-            C66 50 84 39 104 41
-            C118 25 138 19 157 25
-            C175 15 198 20 211 35
-            C227 29 246 34 257 47
-            C274 42 294 48 304 61
-            C319 62 334 70 343 82
-            C313 95 279 98 243 95
-            C205 101 165 99 130 96
-            C94 101 55 98 18 82
-            Z
-        "/>
-    </svg>
+            <svg
+                class="cloud cloud-4"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
 
 
-    <svg
-        class="cloud cloud-5"
-        viewBox="0 0 360 120"
-        aria-hidden="true"
-    >
-        <path d="
-            M18 82
-            C28 72 43 68 58 70
-            C66 50 84 39 104 41
-            C118 25 138 19 157 25
-            C175 15 198 20 211 35
-            C227 29 246 34 257 47
-            C274 42 294 48 304 61
-            C319 62 334 70 343 82
-            C313 95 279 98 243 95
-            C205 101 165 99 130 96
-            C94 101 55 98 18 82
-            Z
-        "/>
-    </svg>
+            <svg
+                class="cloud cloud-5"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
 
 
-    <svg
-        class="cloud cloud-6"
-        viewBox="0 0 360 120"
-        aria-hidden="true"
-    >
-        <path d="
-            M18 82
-            C28 72 43 68 58 70
-            C66 50 84 39 104 41
-            C118 25 138 19 157 25
-            C175 15 198 20 211 35
-            C227 29 246 34 257 47
-            C274 42 294 48 304 61
-            C319 62 334 70 343 82
-            C313 95 279 98 243 95
-            C205 101 165 99 130 96
-            C94 101 55 98 18 82
-            Z
-        "/>
-    </svg>
+            <svg
+                class="cloud cloud-6"
+                viewBox="0 0 360 120"
+                aria-hidden="true"
+            >
+
+                <path d="
+                    M18 82
+                    C28 72 43 68 58 70
+                    C66 50 84 39 104 41
+                    C118 25 138 19 157 25
+                    C175 15 198 20 211 35
+                    C227 29 246 34 257 47
+                    C274 42 294 48 304 61
+                    C319 62 334 70 343 82
+                    C313 95 279 98 243 95
+                    C205 101 165 99 130 96
+                    C94 101 55 98 18 82
+                    Z
+                "/>
+
+            </svg>
 
 
-    <!-- Stars -->
+            <!-- =====================================
+                 SURPRISE STARS
+            ====================================== -->
 
-    <div class="star surprise-star-1">✦</div>
-    <div class="star surprise-star-2">✦</div>
-    <div class="star surprise-star-3">·</div>
+            <div class="star surprise-star-1">
+                ✦
+            </div>
 
-</div>
+            <div class="star surprise-star-2">
+                ✦
+            </div>
 
-    <div class="surprise-content">
+            <div class="star surprise-star-3">
+                ·
+            </div>
 
-    <h1 class="surprise-title">
-        A little surprise for you my princess ♡
-    </h1>
 
-        <div class="surprise-heart-divider">
-            ♡
         </div>
 
 
-        <div class="gift-buttons">
+        <!-- =========================================
+             SURPRISE CONTENT
+        ========================================== -->
 
-<button
-    class="gift-heart"
-    id="giftOne"
-    aria-label="Gift 1"
->
-    <img
-        src="images/Gift 1 Heart.png"
-        alt="Gift 1"
-    >
-</button>
+        <div class="surprise-content">
 
 
-<button
-    class="gift-heart"
-    id="giftTwo"
-    aria-label="Gift 2"
->
-    <img
-        src="images/Gift 2 Heart.png"
-        alt="Gift 2"
-    >
-</button>
+            <h1 class="surprise-title">
+                A little surprise for you my princess ♡
+            </h1>
+
+
+            <div class="surprise-heart-divider">
+                ♡
+            </div>
+
+
+            <!-- =====================================
+                 GIFT BUTTONS
+            ====================================== -->
+
+            <div class="gift-buttons">
+
+
+                <button
+                    type="button"
+                    class="gift-heart"
+                    id="giftOne"
+                    aria-label="Gift 1"
+                >
+
+                    <img
+                        src="images/Gift 1 Heart.png"
+                        alt="Gift 1"
+                    >
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="gift-heart"
+                    id="giftTwo"
+                    aria-label="Gift 2"
+                >
+
+                    <img
+                        src="images/Gift 2 Heart.png"
+                        alt="Gift 2"
+                    >
+
+                </button>
+
+
+            </div>
+
 
         </div>
 
-    </div>
 
-</section>
+    </section>
 
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================== -->
 
     <script src="script.js"></script>
+
 
 </body>
 
