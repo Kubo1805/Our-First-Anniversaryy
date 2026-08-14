@@ -1245,11 +1245,13 @@ body {
 
     padding: 30px 20px;
 
-    background:
-        radial-gradient(
-            circle at 18% 18%,
-            rgba(255, 240, 248, 0.55),
-            transparent 28%
+background:
+    radial-gradient(
+        circle at center,
+        #ffe7f1 0%,
+        #ffd3e3 38%,
+        #f4b3cc 100%
+    );
         ),
         radial-gradient(
             circle at 82% 78%,
@@ -1458,4 +1460,54 @@ body {
 
 .gift-heart:active {
     transform: scale(0.96);
+}
+
+/* =====================================================
+   SURPRISE PAGE SKY
+===================================================== */
+
+.surprise-sky {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.surprise-content {
+    position: relative;
+
+    z-index: 5;
+}
+
+.surprise-star-1 {
+    top: 14%;
+    left: 25%;
+
+    font-size: 16px;
+}
+
+
+.surprise-star-2 {
+    top: 28%;
+    right: 24%;
+
+    font-size: 13px;
+
+    animation-delay: -1.5s;
+}
+
+
+.surprise-star-3 {
+    top: 43%;
+    left: 78%;
+
+    font-size: 22px;
+
+    animation-delay: -2.5s;
 }
