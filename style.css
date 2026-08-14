@@ -155,7 +155,7 @@ body {
     width: 280px;
     height: auto;
 
-    fill: rgba(255, 243, 248, 0.34);
+    fill: rgba(255, 228, 240, 0.46);
 
     filter:
         blur(0.8px)
@@ -163,7 +163,7 @@ body {
             0 8px 15px rgba(194, 112, 149, 0.06)
         );
 
-    opacity: 0.68;
+    opacity: 0.74;
 
     animation:
         cloudDrift 30s linear infinite;
