@@ -23,6 +23,18 @@ const continueButton =
 const surprisePage =
     document.getElementById("surprisePage");
 
+const hintPage =
+    document.getElementById("hintPage");
+
+const hintBackButton =
+    document.getElementById("hintBackButton");
+
+const giftOne =
+    document.getElementById("giftOne");
+
+const giftTwo =
+    document.getElementById("giftTwo");
+
 
 /* =====================================================
    FLOATING PHOTO SYSTEM
@@ -559,5 +571,55 @@ continueButton.addEventListener("click", (event) => {
         surprisePage.classList.add("visible");
 
     }, 350);
+
+});
+
+/* =====================================================
+   GIFT 1 -> HINT PAGE
+===================================================== */
+
+giftOne.addEventListener("click", () => {
+
+    /* Hide the surprise page */
+
+    surprisePage.classList.remove(
+        "visible"
+    );
+
+
+    /* Show the hint page */
+
+    setTimeout(() => {
+
+        hintPage.classList.add(
+            "visible"
+        );
+
+    }, 300);
+
+});
+
+/* =====================================================
+   HINT PAGE -> SURPRISE PAGE
+===================================================== */
+
+hintBackButton.addEventListener("click", () => {
+
+    /* Hide hint page */
+
+    hintPage.classList.remove(
+        "visible"
+    );
+
+
+    /* Bring surprise page back */
+
+    setTimeout(() => {
+
+        surprisePage.classList.add(
+            "visible"
+        );
+
+    }, 300);
 
 });
