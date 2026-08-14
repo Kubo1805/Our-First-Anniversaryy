@@ -550,13 +550,62 @@ heartLock.addEventListener("click", () => {
 });
 
 /* =====================================================
-   TEMPORARY LETTER PREVIEW
+   LOCK -> LETTER TRANSITION
 ===================================================== */
 
-const letterPage = document.getElementById("letterPage");
+const letterPage =
+    document.getElementById("letterPage");
 
-heartLock.addEventListener("dblclick", () => {
 
-    letterPage.classList.add("visible");
+heartLock.addEventListener("click", () => {
+
+    /* Prevent tapping it multiple times */
+    if (heartLock.classList.contains("unlocking")) {
+        return;
+    }
+
+
+    /* ---------------------------------------------
+       Start lock opening
+    --------------------------------------------- */
+
+    heartLock.classList.add("unlocking");
+
+
+    /* ---------------------------------------------
+       Big burst of hearts
+    --------------------------------------------- */
+
+    createHeartRayWave(true);
+
+
+    /* ---------------------------------------------
+       Let the shackle open first,
+       then begin the page transition
+    --------------------------------------------- */
+
+    setTimeout(() => {
+
+        /* Fade out Page 1 */
+        document
+            .querySelector(".lock-screen")
+            .classList.add("transitioning");
+
+
+        /* Bring in Page 2 */
+        letterPage.classList.add("visible");
+
+    }, 500);
+
+
+    /* ---------------------------------------------
+       Clean up lock animation
+    --------------------------------------------- */
+
+    setTimeout(() => {
+
+        heartLock.classList.remove("unlocking");
+
+    }, 900);
 
 });
