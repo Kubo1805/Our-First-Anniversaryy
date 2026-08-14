@@ -798,3 +798,346 @@ body {
     }
 
 }
+
+
+/* =====================================================
+   ANNIVERSARY LETTER PAGE
+===================================================== */
+
+.letter-page {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #f8c6da 0%,
+            #efb1cc 45%,
+            #dfa0c0 100%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        scale(1.03);
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s ease,
+        visibility 0s linear 1s;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================
+   SHOW LETTER PAGE
+========================================= */
+
+.letter-page.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        scale(1);
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s ease,
+        visibility 0s;
+}
+
+
+/* =========================================
+   LETTER CARD
+========================================= */
+
+.letter-card {
+    width: min(760px, 92vw);
+
+    min-height: 70vh;
+
+    padding:
+        70px
+        75px
+        80px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8f4,
+            #fff1f5
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 70px rgba(105, 45, 72, 0.18);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Subtle paper glow */
+
+.letter-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    top: -170px;
+    right: -150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 200, 220, 0.25);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   MAIN TITLE
+========================================= */
+
+.anniversary-title {
+    position: relative;
+
+    margin-bottom: 12px;
+
+    text-align: center;
+
+    color: #b6537d;
+
+    font-size: clamp(
+        34px,
+        5vw,
+        54px
+    );
+
+    line-height: 1.15;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   LITTLE HEART
+========================================= */
+
+.title-heart {
+    text-align: center;
+
+    color: #e56f9e;
+
+    font-size: 28px;
+
+    margin-bottom: 45px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   LETTER CONTENT
+========================================= */
+
+.letter-content {
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    color: #6f3c52;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   LETTER OPENING
+========================================= */
+
+.letter-opening {
+    margin-bottom: 28px;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    color: #b64f7a;
+}
+
+
+/* =========================================
+   PARAGRAPHS
+========================================= */
+
+.letter-content p {
+    margin-bottom: 24px;
+}
+
+
+/* =========================================
+   HYBRID ANIMATION
+========================================= */
+
+.letter-opening,
+.letter-first-line,
+.letter-rest,
+.letter-signoff {
+    opacity: 0;
+
+    transform:
+        translateY(14px);
+}
+
+
+/* Opening */
+
+.letter-page.visible .letter-opening {
+    animation:
+        letterAppear
+        0.8s
+        ease
+        0.7s
+        forwards;
+}
+
+
+/* First sentence */
+
+.letter-page.visible .letter-first-line {
+    animation:
+        letterAppear
+        0.8s
+        ease
+        1.25s
+        forwards;
+}
+
+
+/* Rest of letter */
+
+.letter-page.visible .letter-rest {
+    animation:
+        letterAppear
+        1s
+        ease
+        2.0s
+        forwards;
+}
+
+
+/* Signoff */
+
+.letter-page.visible .letter-signoff {
+    animation:
+        letterAppear
+        0.9s
+        ease
+        2.8s
+        forwards;
+}
+
+
+/* =========================================
+   YOUR KUNAL
+========================================= */
+
+.your-kunal {
+    margin-top: 12px;
+
+    color: #c65382;
+
+    font-size: 25px;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   APPEAR ANIMATION
+========================================= */
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE / IPAD
+========================================= */
+
+@media (max-width: 700px) {
+
+    .letter-page {
+        padding: 20px 12px;
+    }
+
+
+    .letter-card {
+        width: 94vw;
+
+        padding:
+            45px
+            28px
+            55px;
+    }
+
+
+    .letter-content {
+        font-size: 17px;
+
+        line-height: 1.8;
+    }
+
+
+    .letter-opening {
+        font-size: 24px;
+    }
+
+}
