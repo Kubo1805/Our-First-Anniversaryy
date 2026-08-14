@@ -1,5 +1,9 @@
+/* =====================================================
+   GOOGLE FONTS
+===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Italianno&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
 
 /* =====================================================
    RESET
@@ -30,7 +34,7 @@ body {
 
 
 /* =====================================================
-   MAIN SCREEN
+   MAIN LOCK SCREEN
 ===================================================== */
 
 .lock-screen {
@@ -86,7 +90,7 @@ body {
 
 
 /* =====================================================
-   DREAMY SKY BACKGROUND
+   DREAMY SKY
 ===================================================== */
 
 .dreamy-sky {
@@ -168,10 +172,14 @@ body {
 
     opacity: 0.74;
 
+    pointer-events: none;
+
     animation:
         cloudDrift 30s linear infinite;
 }
 
+
+/* Individual clouds */
 
 .cloud-1 {
     top: 15%;
@@ -221,6 +229,7 @@ body {
     animation-delay: -18s;
 }
 
+
 .cloud-5 {
     top: 42%;
     left: -330px;
@@ -247,9 +256,7 @@ body {
 }
 
 
-/* =====================================================
-   CLOUD MOVEMENT
-===================================================== */
+/* Cloud movement */
 
 @keyframes cloudDrift {
 
@@ -258,7 +265,8 @@ body {
     }
 
     100% {
-        transform: translateX(calc(100vw + 700px));
+        transform:
+            translateX(calc(100vw + 700px));
     }
 
 }
@@ -279,8 +287,6 @@ body {
         starTwinkle 4s ease-in-out infinite;
 }
 
-
-/* Positions */
 
 .star-1 {
     top: 12%;
@@ -330,49 +336,21 @@ body {
 }
 
 
-/* =====================================================
-   STAR TWINKLE
-===================================================== */
-
 @keyframes starTwinkle {
 
     0%,
     100% {
         opacity: 0.35;
-
         transform: scale(0.9);
     }
 
     50% {
         opacity: 0.9;
-
         transform: scale(1.15);
     }
 
 }
 
-
-/* =====================================================
-   FLOATING PHOTOS
-===================================================== */
-
-.floating-photos {
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 5;
-}
-
-
-.heart-photo {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-}
 
 /* =====================================================
    FLOATING PHOTOS
@@ -417,10 +395,6 @@ body {
 }
 
 
-/* =====================================================
-   PHOTO RISING ANIMATION
-===================================================== */
-
 @keyframes photoRise {
 
     0% {
@@ -456,6 +430,7 @@ body {
             translateX(calc(var(--drift) * -0.4))
             rotate(var(--rotation));
     }
+
 }
 
 
@@ -484,14 +459,13 @@ body {
 
     -webkit-tap-highlight-color: transparent;
 
-    /* Gentle idle breathing */
     animation:
         lockIdle 3.5s ease-in-out infinite;
 }
 
 
 /* =====================================================
-   HEART BODY
+   LOCK BODY
 ===================================================== */
 
 .lock-body {
@@ -514,7 +488,7 @@ body {
 
 
 /* =====================================================
-   SHACKLE
+   LOCK SHACKLE
 ===================================================== */
 
 .lock-shackle {
@@ -539,7 +513,7 @@ body {
 
 
 /* =====================================================
-   NORMAL IDLE ANIMATION
+   LOCK IDLE ANIMATION
 ===================================================== */
 
 @keyframes lockIdle {
@@ -557,30 +531,37 @@ body {
 
 
 /* =====================================================
-   TAP / UNLOCK ANIMATION
+   LOCK TAP / BOUNCE
 ===================================================== */
 
 .heart-lock.unlocking {
-    animation: lockTap 0.55s ease-in-out forwards;
+    animation:
+        lockUnlock 0.65s
+        ease-in-out
+        forwards;
 }
 
 
-@keyframes lockTap {
+@keyframes lockUnlock {
 
     0% {
         transform: scale(1);
     }
 
-    20% {
-        transform: scale(0.96);
+    25% {
+        transform:
+            scale(0.94)
+            rotate(-2deg);
     }
 
-    45% {
+    50% {
+        transform:
+            scale(1.08)
+            rotate(2deg);
+    }
+
+    75% {
         transform: scale(1.04);
-    }
-
-    70% {
-        transform: scale(1.01);
     }
 
     100% {
@@ -595,12 +576,11 @@ body {
 ===================================================== */
 
 .heart-lock.unlocking .lock-shackle {
-
     animation:
-        shackleOpen 0.7s
+        shackleOpen
+        0.7s
         cubic-bezier(0.22, 1, 0.36, 1)
         forwards;
-
 }
 
 
@@ -717,11 +697,9 @@ body {
             scale(0.3);
     }
 
-
     15% {
         opacity: 0.95;
     }
-
 
     100% {
         opacity: 0;
@@ -732,72 +710,6 @@ body {
                 calc(-50% + var(--y))
             )
             scale(1.15);
-    }
-
-}
-
-
-/* =====================================================
-   TAP ANIMATION
-===================================================== */
-
-.heart-lock.unlocking {
-    animation:
-        lockUnlock 0.65s ease-in-out forwards;
-}
-
-
-@keyframes lockUnlock {
-
-    0% {
-        transform: scale(1);
-    }
-
-    25% {
-        transform: scale(0.94) rotate(-2deg);
-    }
-
-    50% {
-        transform: scale(1.08) rotate(2deg);
-    }
-
-    75% {
-        transform: scale(1.04);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
-}
-
-
-/* =====================================================
-   SMALL SCREEN ADJUSTMENTS
-===================================================== */
-
-@media (max-width: 700px) {
-
-    .heart-lock {
-        width: 260px;
-        height: 260px;
-    }
-
-
-    .photo {
-        width: 170px;
-        height: 170px;
-    }
-
-
-    .photo-1 {
-        top: 8%;
-        left: 4%;
-    }
-
-
-    .unlock-text {
-        font-size: 16px;
     }
 
 }
@@ -855,9 +767,6 @@ body {
     overflow-y: auto;
 }
 
-/* =========================================
-   SHOW LETTER PAGE
-========================================= */
 
 .letter-page.visible {
     opacity: 1;
@@ -866,8 +775,7 @@ body {
 
     pointer-events: auto;
 
-    transform:
-        scale(1);
+    transform: scale(1);
 
     transition:
         opacity 1s ease,
@@ -877,7 +785,7 @@ body {
 
 
 /* =====================================================
-   COZY HANDWRITTEN LETTER
+   LETTER CARD
 ===================================================== */
 
 .letter-card {
@@ -908,7 +816,6 @@ body {
 
     overflow: hidden;
 
-    /* Slight paper-like angle */
     transform: rotate(-0.35deg);
 }
 
@@ -948,7 +855,9 @@ body {
 
     color: rgba(205, 86, 130, 0.28);
 
-    font-family: "Italianno", cursive;
+    font-family:
+        "Italianno",
+        cursive;
 
     font-size: 38px;
 
@@ -957,7 +866,7 @@ body {
 
 
 /* =====================================================
-   TITLE
+   ANNIVERSARY TITLE
 ===================================================== */
 
 .anniversary-title {
@@ -971,13 +880,16 @@ body {
 
     color: #b44f78;
 
-    font-family: "Italianno", cursive;
+    font-family:
+        "Italianno",
+        cursive;
 
-    font-size: clamp(
-        62px,
-        8vw,
-        88px
-    );
+    font-size:
+        clamp(
+            62px,
+            8vw,
+            88px
+        );
 
     font-weight: 400;
 
@@ -1001,7 +913,9 @@ body {
 
     color: #df6d98;
 
-    font-family: "Italianno", cursive;
+    font-family:
+        "Italianno",
+        cursive;
 
     font-size: 31px;
 
@@ -1010,7 +924,7 @@ body {
 
 
 /* =====================================================
-   LETTER BODY
+   LETTER CONTENT
 ===================================================== */
 
 .letter-content {
@@ -1044,7 +958,9 @@ body {
 
     color: #b04d77;
 
-    font-family: "Italianno", cursive;
+    font-family:
+        "Italianno",
+        cursive;
 
     font-size: 48px;
 
@@ -1055,13 +971,15 @@ body {
 
 
 /* =====================================================
-   FIRST LINE
+   FIRST LETTER LINE
 ===================================================== */
 
 .letter-first-line {
     margin-bottom: 27px;
 
-    font-family: "Italianno", cursive;
+    font-family:
+        "Italianno",
+        cursive;
 
     font-size: 32px;
 
@@ -1072,7 +990,7 @@ body {
 
 
 /* =====================================================
-   NORMAL PARAGRAPHS
+   NORMAL LETTER PARAGRAPHS
 ===================================================== */
 
 .letter-content p {
@@ -1081,7 +999,7 @@ body {
 
 
 /* =====================================================
-   SIGNATURE
+   LETTER SIGN-OFF
 ===================================================== */
 
 .letter-signoff {
@@ -1096,7 +1014,9 @@ body {
 
     color: #c45480;
 
-    font-family: "Italianno", cursive;
+    font-family:
+        "Italianno",
+        cursive;
 
     font-size: 50px;
 
@@ -1115,24 +1035,175 @@ body {
 
     color: rgba(207, 86, 130, 0.42);
 
-    font-family: "Italianno", cursive;
+    font-family:
+        "Italianno",
+        cursive;
 
     font-size: 29px;
 }
 
 
-/* Fade + rise */
+/* =====================================================
+   LETTER TEXT START STATE
+===================================================== */
+
+.letter-opening,
+.letter-first-line,
+.letter-rest,
+.letter-signoff {
+    opacity: 0;
+
+    transform:
+        translateY(16px);
+}
+
+
+/* =====================================================
+   LETTER HYBRID ANIMATION
+===================================================== */
+
+/* "My Princess," */
+
+.letter-page.visible .letter-opening {
+    animation:
+        letterAppear
+        0.9s
+        ease-out
+        0.55s
+        forwards;
+}
+
+
+/* First handwritten sentence */
+
+.letter-page.visible .letter-first-line {
+    animation:
+        letterAppear
+        1s
+        ease-out
+        1.15s
+        forwards;
+}
+
+
+/* Rest of the letter */
+
+.letter-page.visible .letter-rest {
+    animation:
+        letterAppear
+        1s
+        ease-out
+        1.8s
+        forwards;
+}
+
+
+/* "Your Kunal" */
+
+.letter-page.visible .letter-signoff {
+    animation:
+        letterAppear
+        1s
+        ease-out
+        2.6s
+        forwards;
+}
+
+
+/* =====================================================
+   LETTER APPEAR
+===================================================== */
 
 @keyframes letterAppear {
 
     from {
         opacity: 0;
-        transform: translateY(16px);
+
+        transform:
+            translateY(16px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   SMALL SCREENS
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .heart-lock {
+        width: 260px;
+        height: 260px;
+    }
+
+
+    .photo {
+        width: 170px;
+        height: 170px;
+    }
+
+
+    .unlock-text {
+        font-size: 16px;
+    }
+
+
+    .letter-page {
+        padding:
+            20px
+            12px;
+    }
+
+
+    .letter-card {
+        width: 94vw;
+
+        min-height: auto;
+
+        padding:
+            48px
+            28px
+            58px;
+    }
+
+
+    .anniversary-title {
+        font-size:
+            clamp(
+                54px,
+                15vw,
+                72px
+            );
+    }
+
+
+    .letter-content {
+        font-size: 17px;
+
+        line-height: 1.85;
+    }
+
+
+    .letter-opening {
+        font-size: 43px;
+    }
+
+
+    .letter-first-line {
+        font-size: 29px;
+    }
+
+
+    .your-kunal {
+        font-size: 44px;
     }
 
 }
