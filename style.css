@@ -83,6 +83,318 @@ body {
 
 
 /* =====================================================
+   DREAMY SKY BACKGROUND
+===================================================== */
+
+.dreamy-sky {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   MOON
+===================================================== */
+
+.moon {
+    position: absolute;
+
+    top: 8%;
+    right: 10%;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #fff4fa 0%,
+            #ffd9e8 40%,
+            #efb2cc 72%,
+            #dfa0c0 100%
+        );
+
+    opacity: 0.72;
+
+    box-shadow:
+        0 0 30px rgba(255, 223, 237, 0.45),
+        0 0 80px rgba(255, 220, 238, 0.30);
+
+    filter: blur(0.2px);
+
+    animation:
+        moonGlow 5s ease-in-out infinite;
+}
+
+
+/* Soft crescent cutout */
+
+.moon::after {
+    content: "";
+
+    position: absolute;
+
+    top: -12px;
+    left: 35px;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(246, 183, 208, 1);
+
+    opacity: 0.92;
+}
+
+
+/* =====================================================
+   MOON GLOW
+===================================================== */
+
+@keyframes moonGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        opacity: 0.68;
+    }
+
+    50% {
+        transform: scale(1.025);
+
+        opacity: 0.78;
+    }
+
+}
+
+
+/* =====================================================
+   CLOUDS
+===================================================== */
+
+.cloud {
+    position: absolute;
+
+    width: 220px;
+    height: 65px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(255, 241, 247, 0.42);
+
+    filter: blur(1px);
+
+    opacity: 0.75;
+
+    box-shadow:
+        0 8px 20px rgba(199, 116, 153, 0.08);
+
+    animation:
+        cloudDrift 24s linear infinite;
+}
+
+
+/* Cloud bumps */
+
+.cloud::before,
+.cloud::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 241, 247, 0.42);
+}
+
+
+.cloud::before {
+    width: 90px;
+    height: 90px;
+
+    left: 35px;
+    bottom: 15px;
+}
+
+
+.cloud::after {
+    width: 70px;
+    height: 70px;
+
+    left: 105px;
+    bottom: 10px;
+}
+
+
+/* Individual cloud positions */
+
+.cloud-1 {
+    top: 16%;
+    left: -260px;
+
+    animation-duration: 30s;
+}
+
+
+.cloud-2 {
+    top: 30%;
+    left: -320px;
+
+    transform: scale(0.72);
+
+    opacity: 0.50;
+
+    animation-duration: 38s;
+    animation-delay: -12s;
+}
+
+
+.cloud-3 {
+    top: 52%;
+    left: -300px;
+
+    transform: scale(0.85);
+
+    opacity: 0.38;
+
+    animation-duration: 42s;
+    animation-delay: -23s;
+}
+
+
+.cloud-4 {
+    top: 72%;
+    left: -260px;
+
+    transform: scale(0.6);
+
+    opacity: 0.30;
+
+    animation-duration: 34s;
+    animation-delay: -17s;
+}
+
+
+/* =====================================================
+   CLOUD MOVEMENT
+===================================================== */
+
+@keyframes cloudDrift {
+
+    0% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-left: calc(100vw + 600px);
+    }
+
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+.star {
+    position: absolute;
+
+    color: rgba(255, 244, 250, 0.65);
+
+    user-select: none;
+
+    animation:
+        starTwinkle 4s ease-in-out infinite;
+}
+
+
+/* Positions */
+
+.star-1 {
+    top: 12%;
+    left: 30%;
+
+    font-size: 18px;
+}
+
+
+.star-2 {
+    top: 23%;
+    left: 72%;
+
+    font-size: 13px;
+
+    animation-delay: -1s;
+}
+
+
+.star-3 {
+    top: 38%;
+    left: 18%;
+
+    font-size: 11px;
+
+    animation-delay: -2.5s;
+}
+
+
+.star-4 {
+    top: 18%;
+    left: 58%;
+
+    font-size: 24px;
+
+    animation-delay: -1.4s;
+}
+
+
+.star-5 {
+    top: 45%;
+    right: 20%;
+
+    font-size: 18px;
+
+    animation-delay: -3s;
+}
+
+
+/* =====================================================
+   STAR TWINKLE
+===================================================== */
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.35;
+
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 0.9;
+
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
    FLOATING PHOTOS
 ===================================================== */
 
