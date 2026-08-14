@@ -28,8 +28,33 @@
 
 <div class="dreamy-sky" aria-hidden="true">
 
-    <!-- Moon -->
-    <div class="moon"></div>
+<svg
+    class="moon"
+    viewBox="0 0 220 220"
+    aria-hidden="true"
+>
+    <defs>
+        <radialGradient id="moonGradient" cx="35%" cy="35%">
+            <stop offset="0%" stop-color="#fff5fa"/>
+            <stop offset="70%" stop-color="#ffd9e8"/>
+            <stop offset="100%" stop-color="#efb7d0"/>
+        </radialGradient>
+    </defs>
+
+    <path
+        d="
+            M150 18
+            C88 18 38 67 38 126
+            C38 184 86 202 126 202
+            C100 182 88 154 88 120
+            C88 67 128 28 178 27
+            C169 21 160 18 150 18
+            Z
+        "
+        fill="url(#moonGradient)"
+    />
+
+</svg>
 
     <!-- Clouds -->
     <div class="cloud cloud-1"></div>
