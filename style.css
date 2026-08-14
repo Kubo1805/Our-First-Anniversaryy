@@ -1317,23 +1317,29 @@ body {
     color: #b34f79;
 
     font-family:
-        "Italianno",
-        cursive;
+        "Playfair Display",
+        Georgia,
+        serif;
 
     font-size:
         clamp(
-            64px,
-            9vw,
-            96px
+            38px,
+            5vw,
+            58px
         );
 
-    font-weight: 400;
+    font-weight: 500;
 
-    line-height: 0.95;
+    line-height: 1.15;
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 2px 8px
+        rgba(180, 79, 121, 0.10);
 }
-
 
 /* =====================================================
    LITTLE HEART
