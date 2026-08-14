@@ -34,24 +34,64 @@
     aria-hidden="true"
 >
     <defs>
-        <radialGradient id="moonGradient" cx="35%" cy="35%">
-            <stop offset="0%" stop-color="#fff5fa"/>
-            <stop offset="70%" stop-color="#ffd9e8"/>
-            <stop offset="100%" stop-color="#efb7d0"/>
+
+        <!-- Proper crescent mask -->
+        <mask id="crescentMask">
+
+            <rect
+                width="220"
+                height="220"
+                fill="black"
+            />
+
+            <!-- Moon -->
+            <circle
+                cx="105"
+                cy="110"
+                r="78"
+                fill="white"
+            />
+
+            <!-- Cutout -->
+            <circle
+                cx="142"
+                cy="92"
+                r="78"
+                fill="black"
+            />
+
+        </mask>
+
+        <!-- Moon coloring -->
+        <radialGradient
+            id="moonGradient"
+            cx="35%"
+            cy="30%"
+        >
+            <stop
+                offset="0%"
+                stop-color="#fff7fb"
+            />
+
+            <stop
+                offset="65%"
+                stop-color="#ffdce9"
+            />
+
+            <stop
+                offset="100%"
+                stop-color="#efb5cf"
+            />
         </radialGradient>
+
     </defs>
 
-    <path
-        d="
-            M150 18
-            C88 18 38 67 38 126
-            C38 184 86 202 126 202
-            C100 182 88 154 88 120
-            C88 67 128 28 178 27
-            C169 21 160 18 150 18
-            Z
-        "
+
+    <rect
+        width="220"
+        height="220"
         fill="url(#moonGradient)"
+        mask="url(#crescentMask)"
     />
 
 </svg>
