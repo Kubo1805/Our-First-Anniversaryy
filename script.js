@@ -548,3 +548,15 @@ heartLock.addEventListener("click", () => {
     }, 900);
 
 });
+
+/* =====================================================
+   TEMPORARY LETTER PREVIEW
+===================================================== */
+
+const letterPage = document.getElementById("letterPage");
+
+heartLock.addEventListener("dblclick", () => {
+
+    letterPage.classList.add("visible");
+
+});
