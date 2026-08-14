@@ -56,6 +56,25 @@ body {
             #ffd3e3 35%,
             #f4b3cc 100%
         );
+   
+      transition:
+         opacity 1s ease,
+         transform 1s ease,
+         filter 1s ease;
+}
+
+/* =====================================================
+   PAGE 1 -> PAGE 2 TRANSITION
+===================================================== */
+
+.lock-screen.transitioning {
+    opacity: 0;
+
+    transform: scale(1.04);
+
+    filter: blur(2px);
+
+    pointer-events: none;
 }
 
 
