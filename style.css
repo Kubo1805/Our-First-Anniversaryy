@@ -218,6 +218,31 @@ body {
     animation-delay: -18s;
 }
 
+.cloud-5 {
+    top: 42%;
+    left: -330px;
+
+    width: 250px;
+
+    opacity: 0.36;
+
+    animation-duration: 40s;
+    animation-delay: -8s;
+}
+
+
+.cloud-6 {
+    top: 62%;
+    left: -300px;
+
+    width: 190px;
+
+    opacity: 0.28;
+
+    animation-duration: 35s;
+    animation-delay: -21s;
+}
+
 
 /* =====================================================
    CLOUD MOVEMENT
