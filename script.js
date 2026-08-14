@@ -521,13 +521,13 @@ heartLock.addEventListener("click", () => {
 
 heartLock.addEventListener("click", () => {
 
-    /* Prevent repeated taps during the animation */
+    /* Prevent multiple taps during the animation */
     if (heartLock.classList.contains("unlocking")) {
         return;
     }
 
 
-    /* Restart the animation */
+    /* Restart animation cleanly */
     heartLock.classList.remove("unlocking");
 
     void heartLock.offsetWidth;
@@ -535,17 +535,11 @@ heartLock.addEventListener("click", () => {
     heartLock.classList.add("unlocking");
 
 
-    /* Bigger heart burst */
+    /* Big burst of hearts */
     createHeartRayWave(true);
 
 
-    /*
-       We'll eventually use this point
-       to move to page 2.
-
-       For now we leave it here so
-       we can perfect the animation first.
-    */
+    /* Remove animation class afterward */
 
     setTimeout(() => {
 
