@@ -819,23 +819,24 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 40px 20px;
+    padding: 32px 18px;
 
     background:
         radial-gradient(
-            circle at 20% 20%,
-            rgba(255, 235, 244, 0.55),
-            transparent 35%
+            circle at 18% 15%,
+            rgba(255, 240, 247, 0.55),
+            transparent 28%
         ),
         radial-gradient(
-            circle at 80% 75%,
-            rgba(255, 201, 221, 0.30),
-            transparent 40%
+            circle at 84% 82%,
+            rgba(255, 205, 225, 0.28),
+            transparent 35%
         ),
         linear-gradient(
             135deg,
-            #efb0ca,
-            #e9a9c5
+            #e8a6c2,
+            #f0b4cc 45%,
+            #e9a7c2 100%
         );
 
     opacity: 0;
@@ -848,12 +849,11 @@ body {
 
     transition:
         opacity 1s ease,
-        transform 1.2s ease,
+        transform 1.15s ease,
         visibility 0s linear 1s;
 
     overflow-y: auto;
 }
-
 
 /* =========================================
    SHOW LETTER PAGE
@@ -877,51 +877,44 @@ body {
 
 
 /* =====================================================
-   COZY LETTER CARD
+   COZY HANDWRITTEN LETTER
 ===================================================== */
 
 .letter-card {
     position: relative;
 
-    width: min(720px, 92vw);
+    width: min(680px, 91vw);
 
-    min-height: 78vh;
+    min-height: 76vh;
 
     padding:
+        68px
         72px
-        85px
-        80px;
+        75px;
 
     background:
-        radial-gradient(
-            circle at 15% 12%,
-            rgba(255, 255, 255, 0.75) 0%,
-            rgba(255, 255, 255, 0) 28%
-        ),
-        radial-gradient(
-            circle at 85% 85%,
-            rgba(255, 201, 222, 0.22) 0%,
-            rgba(255, 201, 222, 0) 35%
-        ),
         linear-gradient(
-            145deg,
+            135deg,
             #fffaf7 0%,
-            #fff6f6 45%,
-            #fff0f4 100%
+            #fff7f3 45%,
+            #fff0f3 100%
         );
 
-    border-radius: 28px;
+    border-radius: 12px;
 
     box-shadow:
-        0 28px 70px rgba(120, 54, 82, 0.14),
-        0 7px 20px rgba(120, 54, 82, 0.07);
+        0 24px 55px rgba(105, 48, 74, 0.15),
+        0 4px 12px rgba(105, 48, 74, 0.06);
 
     overflow: hidden;
+
+    /* Slight paper-like angle */
+    transform: rotate(-0.35deg);
 }
 
 
 /* =====================================================
-   PAPER TEXTURE
+   PAPER INNER EDGE
 ===================================================== */
 
 .letter-card::before {
@@ -929,32 +922,20 @@ body {
 
     position: absolute;
 
-    inset: 0;
+    inset: 18px;
+
+    border:
+        1px solid
+        rgba(190, 105, 137, 0.14);
+
+    border-radius: 8px;
 
     pointer-events: none;
-
-    opacity: 0.45;
-
-    background:
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(180, 120, 145, 0.045) 0 1px,
-            transparent 1px
-        ),
-        radial-gradient(
-            circle at 70% 60%,
-            rgba(180, 120, 145, 0.035) 0 1px,
-            transparent 1px
-        );
-
-    background-size:
-        38px 38px,
-        52px 52px;
 }
 
 
 /* =====================================================
-   DECORATIVE TOP CORNER
+   LITTLE CORNER HEART
 ===================================================== */
 
 .letter-card::after {
@@ -962,14 +943,14 @@ body {
 
     position: absolute;
 
-    top: 22px;
-    right: 30px;
+    top: 30px;
+    right: 42px;
 
-    color: rgba(226, 104, 148, 0.22);
+    color: rgba(205, 86, 130, 0.28);
 
     font-family: "Italianno", cursive;
 
-    font-size: 44px;
+    font-size: 38px;
 
     transform: rotate(10deg);
 }
@@ -982,62 +963,64 @@ body {
 .anniversary-title {
     position: relative;
 
-    margin: 0 auto 6px;
+    margin: 0 auto;
 
-    max-width: 650px;
+    max-width: 600px;
 
     text-align: center;
 
-    color: #b6537d;
+    color: #b44f78;
 
     font-family: "Italianno", cursive;
 
     font-size: clamp(
-        58px,
+        62px,
         8vw,
-        86px
+        88px
     );
 
     font-weight: 400;
 
-    line-height: 0.95;
+    line-height: 0.9;
 
     letter-spacing: 1px;
-
-    text-shadow:
-        0 2px 8px rgba(180, 83, 125, 0.10);
 }
 
 
 /* =====================================================
-   LITTLE HEART
+   TITLE HEART
 ===================================================== */
 
 .title-heart {
-    margin: 10px 0 42px;
+    margin:
+        14px
+        0
+        48px;
 
     text-align: center;
 
-    color: #e56f9e;
+    color: #df6d98;
 
     font-family: "Italianno", cursive;
 
-    font-size: 34px;
+    font-size: 31px;
 
-    opacity: 0.75;
+    opacity: 0.7;
 }
 
 
 /* =====================================================
-   LETTER CONTENT
+   LETTER BODY
 ===================================================== */
 
 .letter-content {
-    max-width: 570px;
+    position: relative;
+
+    max-width: 550px;
 
     margin: 0 auto;
 
-    color: #754658;
+    color: #754657;
 
     font-family:
         "Playfair Display",
@@ -1048,49 +1031,52 @@ body {
 
     line-height: 2;
 
-    letter-spacing: 0.12px;
+    letter-spacing: 0.1px;
 }
 
 
 /* =====================================================
-   OPENING
+   MY PRINCESS
 ===================================================== */
 
 .letter-opening {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 
-    color: #b64f7a;
+    color: #b04d77;
 
     font-family: "Italianno", cursive;
 
-    font-size: 46px;
+    font-size: 48px;
 
     font-weight: 400;
 
     line-height: 1;
 }
 
+
 /* =====================================================
-   FIRST SENTENCE
+   FIRST LINE
 ===================================================== */
 
 .letter-first-line {
+    margin-bottom: 27px;
+
     font-family: "Italianno", cursive;
 
-    font-size: 31px;
+    font-size: 32px;
 
     line-height: 1.25;
 
-    color: #a94c74;
+    color: #a84b73;
 }
 
 
 /* =====================================================
-   PARAGRAPHS
+   NORMAL PARAGRAPHS
 ===================================================== */
 
 .letter-content p {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 }
 
 
@@ -1099,20 +1085,20 @@ body {
 ===================================================== */
 
 .letter-signoff {
-    margin-top: 42px;
+    margin-top: 46px;
 
     text-align: right;
 }
 
 
 .your-kunal {
-    margin-top: 8px;
+    margin-top: 7px;
 
-    color: #c65382;
+    color: #c45480;
 
     font-family: "Italianno", cursive;
 
-    font-size: 48px;
+    font-size: 50px;
 
     font-style: normal;
 
@@ -1120,78 +1106,33 @@ body {
 }
 
 
-/* =====================================================
-   LITTLE DECORATIONS
-===================================================== */
-
 .letter-signoff::after {
     content: "♡";
 
     display: block;
 
-    margin-top: 10px;
+    margin-top: 11px;
 
-    color: rgba(214, 89, 133, 0.45);
+    color: rgba(207, 86, 130, 0.42);
 
     font-family: "Italianno", cursive;
 
-    font-size: 30px;
+    font-size: 29px;
 }
 
 
-/* =========================================
-   APPEAR ANIMATION
-========================================= */
+/* Fade + rise */
 
 @keyframes letterAppear {
 
     from {
         opacity: 0;
-
-        transform:
-            translateY(14px);
+        transform: translateY(16px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-/* =========================================
-   MOBILE / IPAD
-========================================= */
-
-@media (max-width: 700px) {
-
-    .letter-page {
-        padding: 20px 12px;
-    }
-
-
-    .letter-card {
-        width: 94vw;
-
-        padding:
-            45px
-            28px
-            55px;
-    }
-
-
-    .letter-content {
-        font-size: 17px;
-
-        line-height: 1.8;
-    }
-
-
-    .letter-opening {
-        font-size: 24px;
+        transform: translateY(0);
     }
 
 }
