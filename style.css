@@ -1033,6 +1033,12 @@ body {
     text-align: right;
 }
 
+.letter-rest {
+    opacity: 1;
+
+    transform: none;
+}
+
 
 .your-kunal {
     margin-top: 7px;
