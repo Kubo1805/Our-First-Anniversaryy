@@ -62,6 +62,9 @@ const sunnyPage =
 const sunnyBackButton =
     document.getElementById("sunnyBackButton");
 
+const hintThree =
+    document.getElementById("hintThree");
+
 
 /* =====================================================
    FLOATING PHOTO SYSTEM
@@ -637,60 +640,45 @@ let currentGift = 1;
    GIFT 1 -> HINT PAGE
 ===================================================== */
 
-giftOne.addEventListener(
-    "click",
-    () => {
+giftOne.addEventListener("click", () => {
 
-        currentGift = 1;
+    currentGift = 1;
 
-        hintPage.classList.remove(
-            "gift-two-active"
-        );
+    /* Hide Hint 3 */
+    hintThree.style.display = "none";
 
-        surprisePage.classList.remove(
-            "visible"
-        );
+    surprisePage.classList.remove("visible");
 
-        setTimeout(() => {
+    setTimeout(() => {
 
-            hintPage.classList.add(
-                "visible"
-            );
+        hintPage.classList.add("visible");
 
-        }, 300);
+    }, 300);
 
-    }
-);
+});
+
 
 
 /* =====================================================
    GIFT 2 -> HINT PAGE
 ===================================================== */
 
-giftTwo.addEventListener(
-    "click",
-    () => {
+giftTwo.addEventListener("click", () => {
 
-        currentGift = 2;
+    currentGift = 2;
 
-        hintPage.classList.add(
-            "gift-two-active"
-        );
+    /* Show Hint 3 */
+    hintThree.style.display = "block";
 
-        surprisePage.classList.remove(
-            "visible"
-        );
+    surprisePage.classList.remove("visible");
 
-        setTimeout(() => {
+    setTimeout(() => {
 
-            hintPage.classList.add(
-                "visible"
-            );
+        hintPage.classList.add("visible");
 
-        }, 300);
+    }, 300);
 
-    }
-);
+});
 
 /* =====================================================
    HINT PAGE -> SURPRISE PAGE
