@@ -1080,9 +1080,14 @@ body {
 
 .letter-opening,
 .letter-first-line,
-.letter-rest,
 .letter-signoff {
     opacity: 0;
+
+    transform: none;
+}
+
+.letter-rest {
+    opacity: 1;
 
     transform: none;
 }
