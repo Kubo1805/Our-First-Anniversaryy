@@ -35,6 +35,36 @@ const giftOne =
 const giftTwo =
     document.getElementById("giftTwo");
 
+const hintPage =
+    document.getElementById("hintPage");
+
+const hintBackButton =
+    document.getElementById("hintBackButton");
+
+const giftOne =
+    document.getElementById("giftOne");
+
+const giftTwo =
+    document.getElementById("giftTwo");
+
+const hintOne =
+    document.getElementById("hintOne");
+
+const hintTwo =
+    document.getElementById("hintTwo");
+
+const videoPage =
+    document.getElementById("videoPage");
+
+const youtubeVideo =
+    document.getElementById("youtubeVideo");
+
+const videoTitle =
+    document.getElementById("videoTitle");
+
+const videoBackButton =
+    document.getElementById("videoBackButton");
+
 
 /* =====================================================
    FLOATING PHOTO SYSTEM
@@ -574,20 +604,25 @@ continueButton.addEventListener("click", (event) => {
 
 });
 
+
 /* =====================================================
-   GIFT 1 -> HINT PAGE
+   GIFT / HINT / VIDEO NAVIGATION
+===================================================== */
+
+let currentGift = 1;
+
+
+/* =====================================================
+   GIFT 1
 ===================================================== */
 
 giftOne.addEventListener("click", () => {
 
-    /* Hide the surprise page */
+    currentGift = 1;
 
     surprisePage.classList.remove(
         "visible"
     );
-
-
-    /* Show the hint page */
 
     setTimeout(() => {
 
@@ -599,24 +634,147 @@ giftOne.addEventListener("click", () => {
 
 });
 
+
+/* =====================================================
+   GIFT 2
+===================================================== */
+
+giftTwo.addEventListener("click", () => {
+
+    currentGift = 2;
+
+    surprisePage.classList.remove(
+        "visible"
+    );
+
+    setTimeout(() => {
+
+        hintPage.classList.add(
+            "visible"
+        );
+
+    }, 300);
+
+});
+
+
 /* =====================================================
    HINT PAGE -> SURPRISE PAGE
 ===================================================== */
 
 hintBackButton.addEventListener("click", () => {
 
-    /* Hide hint page */
+    hintPage.classList.remove(
+        "visible"
+    );
+
+    setTimeout(() => {
+
+        surprisePage.classList.add(
+            "visible"
+        );
+
+    }, 300);
+
+});
+
+
+/* =====================================================
+   VIDEO DATA
+===================================================== */
+
+const videoData = {
+
+    gift1: {
+        hint1: "x6R9nIiWXbQ",
+        hint2: "Qwrto3XBwRY"
+    },
+
+    gift2: {
+        hint1: "AsiWL5qVb5U",
+        hint2: "zA012OwAQdc"
+    }
+
+};
+
+
+/* =====================================================
+   OPEN HINT VIDEO
+===================================================== */
+
+function openHintVideo(hintNumber) {
+
+    const gift =
+        currentGift === 1
+            ? videoData.gift1
+            : videoData.gift2;
+
+    const videoId =
+        hintNumber === 1
+            ? gift.hint1
+            : gift.hint2;
+
+
+    videoTitle.textContent =
+        "A little hint for you ♡";
+
+
+    youtubeVideo.src =
+        `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
+
 
     hintPage.classList.remove(
         "visible"
     );
 
+    setTimeout(() => {
 
-    /* Bring surprise page back */
+        videoPage.classList.add(
+            "visible"
+        );
+
+    }, 300);
+
+}
+
+
+/* =====================================================
+   HINT 1
+===================================================== */
+
+hintOne.addEventListener("click", () => {
+
+    openHintVideo(1);
+
+});
+
+
+/* =====================================================
+   HINT 2
+===================================================== */
+
+hintTwo.addEventListener("click", () => {
+
+    openHintVideo(2);
+
+});
+
+
+/* =====================================================
+   VIDEO -> HINT PAGE
+===================================================== */
+
+videoBackButton.addEventListener("click", () => {
+
+    youtubeVideo.src = "";
+
+    videoPage.classList.remove(
+        "visible"
+    );
 
     setTimeout(() => {
 
-        surprisePage.classList.add(
+        hintPage.classList.add(
             "visible"
         );
 
