@@ -86,13 +86,25 @@ const clickSound =
 let musicMuted = false;
 
 
-/* Initial audio settings */
+/* =====================================================
+   SAFE AUDIO SETUP
+===================================================== */
 
-backgroundMusic.volume = 0.45;
-clickSound.volume = 0.55;
+if (backgroundMusic) {
+    backgroundMusic.volume = 0.45;
+}
+
+if (clickSound) {
+    clickSound.volume = 0.55;
+}
 
 
 function updateAudioIcon() {
+
+    if (!audioIcon || !audioToggle) {
+        return;
+    }
+
 
     if (musicMuted) {
 
@@ -121,17 +133,19 @@ function updateAudioIcon() {
 
 function startMusic() {
 
-    if (musicMuted) {
+    if (
+        musicMuted ||
+        !backgroundMusic
+    ) {
         return;
     }
+
 
     backgroundMusic
         .play()
         .catch(() => {
-
-            /* Browser may still refuse playback.
-               The next user interaction will retry. */
-
+            /* Audio playback failures must
+               never stop the website. */
         });
 
 }
@@ -139,14 +153,17 @@ function startMusic() {
 
 function playClickSound() {
 
+    if (!clickSound) {
+        return;
+    }
+
+
     clickSound.currentTime = 0;
 
     clickSound
         .play()
         .catch(() => {
-
-            /* Ignore playback errors quietly. */
-
+            /* Ignore audio playback errors. */
         });
 
 }
@@ -156,45 +173,48 @@ function playClickSound() {
 
 updateAudioIcon();
 
-    let gift2Hint1Seen = false;
-    let gift2Hint2Seen = false;
 
-
+let gift2Hint1Seen = false;
+let gift2Hint2Seen = false;
 
 
 /* =====================================================
    MUSIC TOGGLE
 ===================================================== */
 
-audioToggle.addEventListener(
-    "click",
-    (event) => {
+if (audioToggle) {
 
-        event.preventDefault();
-        event.stopPropagation();
+    audioToggle.addEventListener(
+        "click",
+        (event) => {
 
-        musicMuted = !musicMuted;
+            event.preventDefault();
+            event.stopPropagation();
 
-        if (musicMuted) {
+            musicMuted =
+                !musicMuted;
 
-            backgroundMusic.pause();
 
-        } else {
+            if (
+                musicMuted &&
+                backgroundMusic
+            ) {
 
-            backgroundMusic
-                .play()
-                .catch(() => {
+                backgroundMusic.pause();
 
-                    /* Retry on the next interaction. */
+            } else {
 
-                });
+                startMusic();
+
+            }
+
+
+            updateAudioIcon();
 
         }
+    );
 
-        updateAudioIcon();
-
-    }
-);
+}
 
 
 /* =====================================================
@@ -205,16 +225,33 @@ document.addEventListener(
     "click",
     (event) => {
 
+        const target =
+            event.target;
+
+        if (
+            !target ||
+            typeof target.closest !== "function"
+        ) {
+            return;
+        }
+
+
         const button =
-            event.target.closest("button");
+            target.closest("button");
+
 
         if (!button) {
             return;
         }
 
-        if (button === audioToggle) {
+
+        if (
+            audioToggle &&
+            button === audioToggle
+        ) {
             return;
         }
+
 
         playClickSound();
 
