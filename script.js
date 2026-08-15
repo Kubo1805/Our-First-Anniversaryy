@@ -780,29 +780,46 @@ function openHintVideo(
    HINT 1 -> VIDEO
 ===================================================== */
 
-hintOne.addEventListener(
-    "click",
-    () => {
+hintOne.addEventListener("click", () => {
 
-        openHintVideo(1);
+    youtubeVideo.src =
+        "https://www.youtube-nocookie.com/embed/x6R9nIiWXbQ?rel=0";
 
-    }
-);
+    videoTitle.textContent =
+        "A little hint for my princess ♡";
+
+    hintPage.classList.remove("visible");
+
+    setTimeout(() => {
+
+        videoPage.classList.add("visible");
+
+    }, 300);
+
+});
 
 
 /* =====================================================
    HINT 2 -> VIDEO
 ===================================================== */
 
-hintTwo.addEventListener(
-    "click",
-    () => {
+hintTwo.addEventListener("click", () => {
 
-        openHintVideo(2);
+    youtubeVideo.src =
+        "https://www.youtube-nocookie.com/embed/Qwrto3XBwRY?rel=0";
 
-    }
-);
+    videoTitle.textContent =
+        "A little hint for my princess ♡";
 
+    hintPage.classList.remove("visible");
+
+    setTimeout(() => {
+
+        videoPage.classList.add("visible");
+
+    }, 300);
+
+});
 
 /* =====================================================
    VIDEO -> HINT PAGE
