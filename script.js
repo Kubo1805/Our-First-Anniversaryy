@@ -53,6 +53,15 @@ const videoTitle =
 const videoBackButton =
     document.getElementById("videoBackButton");
 
+const hintThree =
+    document.getElementById("hintThree");
+
+const sunnyPage =
+    document.getElementById("sunnyPage");
+
+const sunnyBackButton =
+    document.getElementById("sunnyBackButton");
+
 
 /* =====================================================
    FLOATING PHOTO SYSTEM
@@ -634,11 +643,13 @@ giftOne.addEventListener(
 
         currentGift = 1;
 
+        hintPage.classList.remove(
+            "gift-two-active"
+        );
 
         surprisePage.classList.remove(
             "visible"
         );
-
 
         setTimeout(() => {
 
