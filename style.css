@@ -2267,3 +2267,271 @@ background:
 .hint-page.gift-two-active .hint-three-button {
     display: block;
 }
+
+/* =====================================================
+   SUNNY BOY PAGE
+===================================================== */
+
+.sunny-page {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 125;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffe7f1 0%,
+            #ffd3e3 40%,
+            #f4b3cc 100%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 0.9s ease,
+        transform 1s ease,
+        visibility 0s linear 1s;
+
+    overflow-y: auto;
+}
+
+
+.sunny-page.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: scale(1);
+
+    transition:
+        opacity 0.9s ease,
+        transform 1s ease,
+        visibility 0s;
+}
+
+
+/* =====================================================
+   SUNNY CONTENT
+===================================================== */
+
+.sunny-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(900px, 92vw);
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.sunny-title {
+    margin:
+        0
+        auto
+        32px;
+
+    max-width: 850px;
+
+    color: #b34f79;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            46px
+        );
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    line-height: 1.25;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(180, 79, 121, 0.10);
+}
+
+
+/* =====================================================
+   SUNNY BOY IMAGE
+===================================================== */
+
+.sunny-picture-frame {
+    width: min(700px, 88vw);
+
+    margin:
+        0
+        auto;
+
+    padding: 14px;
+
+    background:
+        rgba(255, 244, 248, 0.75);
+
+    border:
+        3px solid
+        rgba(227, 103, 150, 0.55);
+
+    border-radius: 26px;
+
+    box-shadow:
+        0 20px 45px
+        rgba(105, 45, 75, 0.16);
+}
+
+
+.sunny-picture-frame img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border-radius: 18px;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.sunny-back-button {
+    position: absolute;
+
+    left: 28px;
+    bottom: 28px;
+
+    width: 76px;
+    height: 76px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    z-index: 10;
+
+    animation:
+        sunnyBackPulse
+        2.6s ease-in-out infinite;
+}
+
+
+.sunny-back-button img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transform:
+        scaleX(-1);
+
+    pointer-events: none;
+}
+
+
+@keyframes sunnyBackPulse {
+
+    0%,
+    100% {
+        transform:
+            translateX(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateX(-6px)
+            scale(1.04);
+    }
+
+}
+
+
+.sunny-back-button:active {
+    transform: scale(0.92);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .sunny-page {
+        padding:
+            25px
+            15px;
+    }
+
+
+    .sunny-title {
+        font-size: 28px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .sunny-picture-frame {
+        padding: 9px;
+
+        border-radius: 20px;
+    }
+
+
+    .sunny-picture-frame img {
+        border-radius: 13px;
+    }
+
+
+    .sunny-back-button {
+        width: 64px;
+        height: 64px;
+
+        left: 18px;
+        bottom: 18px;
+    }
+
+}
