@@ -61,6 +61,8 @@ const sunnyPage =
 
 const sunnyBackButton =
     document.getElementById("sunnyBackButton");
+    let gift2Hint1Seen = false;
+    let gift2Hint2Seen = false;
 
 
 /* =====================================================
@@ -607,34 +609,26 @@ giftOne.addEventListener(
    GIFT 2 -> HINT PAGE
 ===================================================== */
 
-giftTwo.addEventListener(
-    "click",
-    () => {
+giftTwo.addEventListener("click", () => {
 
-        currentGift = 2;
+    currentGift = 2;
 
+    /* Reset the secret Hint 3 */
 
-        /* Show HINT 3 */
+    gift2Hint1Seen = false;
+    gift2Hint2Seen = false;
 
-        hintThree.style.display =
-            "block";
+    hintThree.style.display = "none";
 
+    surprisePage.classList.remove("visible");
 
-        surprisePage.classList.remove(
-            "visible"
-        );
+    setTimeout(() => {
 
+        hintPage.classList.add("visible");
 
-        setTimeout(() => {
+    }, 300);
 
-            hintPage.classList.add(
-                "visible"
-            );
-
-        }, 300);
-
-    }
-);
+});
 
 
 /* =====================================================
@@ -744,6 +738,12 @@ hintOne.addEventListener(
     "click",
     () => {
 
+        if (currentGift === 2) {
+
+            gift2Hint1Seen = true;
+
+        }
+
         openHintVideo(1);
 
     }
@@ -757,6 +757,12 @@ hintOne.addEventListener(
 hintTwo.addEventListener(
     "click",
     () => {
+
+        if (currentGift === 2) {
+
+            gift2Hint2Seen = true;
+
+        }
 
         openHintVideo(2);
 
@@ -772,16 +778,26 @@ videoBackButton.addEventListener(
     "click",
     () => {
 
-        youtubeVideo.src =
-            "";
-
+        youtubeVideo.src = "";
 
         videoPage.classList.remove(
             "visible"
         );
 
-
         setTimeout(() => {
+
+            /* Show secret Hint 3 only after
+               both Gift 2 hints were opened */
+
+            if (
+                currentGift === 2 &&
+                gift2Hint1Seen &&
+                gift2Hint2Seen
+            ) {
+
+                hintThree.style.display = "block";
+
+            }
 
             hintPage.classList.add(
                 "visible"
