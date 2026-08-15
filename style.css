@@ -2252,3 +2252,18 @@ background:
     }
 
 }
+
+/* =====================================================
+   HINT 3 — GIFT 2 ONLY
+===================================================== */
+
+.hint-three-button {
+    display: none;
+}
+
+
+/* Show HINT 3 only for Gift 2 */
+
+.hint-page.gift-two-active .hint-three-button {
+    display: block;
+}
