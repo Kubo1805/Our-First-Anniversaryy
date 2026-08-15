@@ -835,6 +835,11 @@ body {
 
     overflow: hidden;
 
+    margin:
+        0
+        auto
+        32px;
+
     transform: rotate(-0.35deg);
 }
 
@@ -1063,7 +1068,7 @@ body {
 
 
 /* =====================================================
-   LETTER TEXT START STATE
+   LETTER TYPEWRITER START STATE
 ===================================================== */
 
 .letter-opening,
@@ -1072,83 +1077,30 @@ body {
 .letter-signoff {
     opacity: 0;
 
-    transform:
-        translateY(16px);
+    transform: none;
+}
+
+
+/* Keep the main paragraphs hidden until
+   JavaScript writes them on screen. */
+
+.letter-rest p {
+    opacity: 0;
 }
 
 
 /* =====================================================
-   LETTER HYBRID ANIMATION
+   LETTER TYPEWRITER VISIBILITY
 ===================================================== */
 
-/* "My Princess," */
+.letter-opening.letter-visible,
+.letter-first-line.letter-visible,
+.letter-rest p.letter-visible,
+.letter-signoff.letter-visible {
+    opacity: 1;
 
-.letter-page.visible .letter-opening {
-    animation:
-        letterAppear
-        0.9s
-        ease-out
-        0.55s
-        forwards;
-}
-
-
-/* First handwritten sentence */
-
-.letter-page.visible .letter-first-line {
-    animation:
-        letterAppear
-        1s
-        ease-out
-        1.15s
-        forwards;
-}
-
-
-/* Rest of the letter */
-
-.letter-page.visible .letter-rest {
-    animation:
-        letterAppear
-        1s
-        ease-out
-        1.8s
-        forwards;
-}
-
-
-/* "Your Kunal" */
-
-.letter-page.visible .letter-signoff {
-    animation:
-        letterAppear
-        1s
-        ease-out
-        2.6s
-        forwards;
-}
-
-
-/* =====================================================
-   LETTER APPEAR
-===================================================== */
-
-@keyframes letterAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(16px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
+    transition:
+        opacity 0.5s ease;
 }
 
 
@@ -2618,4 +2570,3 @@ background:
     }
 
 }
-
