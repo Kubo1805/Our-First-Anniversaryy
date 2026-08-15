@@ -682,21 +682,26 @@ heartLock.addEventListener(
         );
 
 
-        setTimeout(() => {
+setTimeout(() => {
 
-            lockScreen.classList.add(
-                "transitioning"
-            );
+    lockScreen.classList.add(
+        "transitioning"
+    );
 
-            letterPage.classList.add(
-                "visible"
-            );
+    letterPage.classList.add(
+        "visible"
+    );
 
-        }, 650);
 
-    }
-);
+    /* Start the letter writing */
 
+    setTimeout(() => {
+
+        typeLetter();
+
+    }, 700);
+
+}, 650);
 
 /* =====================================================
    LETTER -> SURPRISE
@@ -1019,3 +1024,139 @@ sunnyBackButton.addEventListener(
 
     }
 );
+
+/* =====================================================
+   LETTER TYPEWRITER
+===================================================== */
+
+function wait(ms) {
+
+    return new Promise(resolve => {
+
+        setTimeout(resolve, ms);
+
+    });
+
+}
+
+
+async function typeElement(
+    element,
+    speed = 22
+) {
+
+    const originalText =
+        element.textContent;
+
+    element.textContent = "";
+
+    element.classList.add(
+        "letter-visible"
+    );
+
+
+    for (
+        let i = 0;
+        i < originalText.length;
+        i++
+    ) {
+
+        element.textContent +=
+            originalText[i];
+
+        await wait(speed);
+
+    }
+
+}
+
+
+async function typeLetter() {
+
+    /* Opening */
+
+    const opening =
+        document.querySelector(
+            ".letter-opening"
+        );
+
+
+    const firstLine =
+        document.getElementById(
+            "letterFirstLine"
+        );
+
+
+    const paragraphs =
+        document.querySelectorAll(
+            "#letterRest p"
+        );
+
+
+    const signoff =
+        document.getElementById(
+            "letterSignoff"
+        );
+
+
+    /* -----------------------------------------
+       Opening
+    ----------------------------------------- */
+
+    opening.classList.remove(
+        "letter-visible"
+    );
+
+    await typeElement(
+        opening,
+        45
+    );
+
+
+    await wait(500);
+
+
+    /* -----------------------------------------
+       First handwritten line
+    ----------------------------------------- */
+
+    await typeElement(
+        firstLine,
+        35
+    );
+
+
+    await wait(600);
+
+
+    /* -----------------------------------------
+       Main letter
+    ----------------------------------------- */
+
+    for (
+        const paragraph of paragraphs
+    ) {
+
+        await typeElement(
+            paragraph,
+            18
+        );
+
+
+        await wait(500);
+
+    }
+
+
+    /* -----------------------------------------
+       Signature
+    ----------------------------------------- */
+
+    await wait(350);
+
+
+    signoff.classList.add(
+        "letter-visible"
+    );
+
+}
