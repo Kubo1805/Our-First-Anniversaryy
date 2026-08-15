@@ -673,11 +673,13 @@ giftTwo.addEventListener(
 
         currentGift = 2;
 
+        hintPage.classList.add(
+            "gift-two-active"
+        );
 
         surprisePage.classList.remove(
             "visible"
         );
-
 
         setTimeout(() => {
 
@@ -689,7 +691,6 @@ giftTwo.addEventListener(
 
     }
 );
-
 
 /* =====================================================
    HINT PAGE -> SURPRISE PAGE
@@ -853,6 +854,54 @@ videoBackButton.addEventListener(
 
 
         /* Return to hints */
+
+        setTimeout(() => {
+
+            hintPage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
+
+/* =====================================================
+   HINT 3 -> SUNNY BOY
+===================================================== */
+
+hintThree.addEventListener(
+    "click",
+    () => {
+
+        hintPage.classList.remove(
+            "visible"
+        );
+
+
+        setTimeout(() => {
+
+            sunnyPage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
+
+/* =====================================================
+   SUNNY BOY -> HINT PAGE
+===================================================== */
+
+sunnyBackButton.addEventListener(
+    "click",
+    () => {
+
+        sunnyPage.classList.remove(
+            "visible"
+        );
+
 
         setTimeout(() => {
 
