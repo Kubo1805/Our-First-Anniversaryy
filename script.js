@@ -35,18 +35,6 @@ const giftOne =
 const giftTwo =
     document.getElementById("giftTwo");
 
-const hintPage =
-    document.getElementById("hintPage");
-
-const hintBackButton =
-    document.getElementById("hintBackButton");
-
-const giftOne =
-    document.getElementById("giftOne");
-
-const giftTwo =
-    document.getElementById("giftTwo");
-
 const hintOne =
     document.getElementById("hintOne");
 
@@ -71,7 +59,6 @@ const videoBackButton =
 ===================================================== */
 
 const photoSources = [
-
     "images/photo1.jpg",
     "images/photo2.jpg",
     "images/photo3.jpg",
@@ -90,7 +77,6 @@ const photoSources = [
     "images/photo16.jpg",
     "images/photo17.jpg",
     "images/photo18.jpg"
-
 ];
 
 
@@ -98,7 +84,7 @@ function createFloatingPhoto() {
 
     /* =========================================
        PHOTO CONTAINER
-    ========================================= */
+    ========================================== */
 
     const photo =
         document.createElement("div");
@@ -108,7 +94,7 @@ function createFloatingPhoto() {
 
     /* =========================================
        SVG HEART
-    ========================================= */
+    ========================================== */
 
     const svg =
         document.createElementNS(
@@ -128,7 +114,7 @@ function createFloatingPhoto() {
 
     /* =========================================
        UNIQUE HEART CLIP
-    ========================================= */
+    ========================================== */
 
     const defs =
         document.createElementNS(
@@ -187,7 +173,7 @@ function createFloatingPhoto() {
 
     /* =========================================
        PHOTO IMAGE
-    ========================================= */
+    ========================================== */
 
     const image =
         document.createElementNS(
@@ -233,7 +219,7 @@ function createFloatingPhoto() {
 
     /* =========================================
        PINK HEART BORDER
-    ========================================= */
+    ========================================== */
 
     const borderHeart =
         document.createElementNS(
@@ -277,7 +263,7 @@ function createFloatingPhoto() {
 
     /* =========================================
        BUILD SVG
-    ========================================= */
+    ========================================== */
 
     svg.appendChild(
         defs
@@ -302,10 +288,11 @@ function createFloatingPhoto() {
 
     /* =========================================
        RANDOM POSITION
-    ========================================= */
+    ========================================== */
 
     const left =
         Math.random() * 100;
+
 
     photo.style.left =
         `${left}%`;
@@ -313,11 +300,12 @@ function createFloatingPhoto() {
 
     /* =========================================
        RANDOM SIZE
-    ========================================= */
+    ========================================== */
 
     const size =
         130 +
         Math.random() * 100;
+
 
     photo.style.setProperty(
         "--size",
@@ -327,11 +315,12 @@ function createFloatingPhoto() {
 
     /* =========================================
        RANDOM SPEED
-    ========================================= */
+    ========================================== */
 
     const duration =
         9 +
         Math.random() * 8;
+
 
     photo.style.setProperty(
         "--duration",
@@ -341,11 +330,12 @@ function createFloatingPhoto() {
 
     /* =========================================
        RANDOM ROTATION
-    ========================================= */
+    ========================================== */
 
     const rotation =
         -12 +
         Math.random() * 24;
+
 
     photo.style.setProperty(
         "--rotation",
@@ -355,11 +345,12 @@ function createFloatingPhoto() {
 
     /* =========================================
        RANDOM SIDEWAYS DRIFT
-    ========================================= */
+    ========================================== */
 
     const drift =
         -80 +
         Math.random() * 160;
+
 
     photo.style.setProperty(
         "--drift",
@@ -369,7 +360,7 @@ function createFloatingPhoto() {
 
     /* =========================================
        REMOVE WHEN FINISHED
-    ========================================= */
+    ========================================== */
 
     setTimeout(() => {
 
@@ -417,7 +408,9 @@ startPhotoStream();
    HEART RAYS
 ===================================================== */
 
-function createHeartRayWave(isBig = false) {
+function createHeartRayWave(
+    isBig = false
+) {
 
     const numberOfHearts =
         isBig
@@ -442,7 +435,8 @@ function createHeartRayWave(isBig = false) {
         ----------------------------------------- */
 
         const angle =
-            (Math.PI * 2 / numberOfHearts) * i;
+            (Math.PI * 2 / numberOfHearts) *
+            i;
 
 
         const baseDistance =
@@ -457,11 +451,13 @@ function createHeartRayWave(isBig = false) {
 
 
         const x =
-            Math.cos(angle) * distance;
+            Math.cos(angle) *
+            distance;
 
 
         const y =
-            Math.sin(angle) * distance;
+            Math.sin(angle) *
+            distance;
 
 
         /* -----------------------------------------
@@ -531,78 +527,94 @@ setInterval(() => {
 
 
 /* =====================================================
-   FINAL LOCK -> LETTER TRANSITION
+   LOCK -> LETTER
 ===================================================== */
 
 let lockHasOpened = false;
 
 
-heartLock.addEventListener("click", () => {
+heartLock.addEventListener(
+    "click",
+    () => {
 
-    /* -----------------------------------------
-       Prevent repeated taps
-    ----------------------------------------- */
+        /* -----------------------------------------
+           Prevent repeated taps
+        ----------------------------------------- */
 
-    if (lockHasOpened) {
-        return;
+        if (lockHasOpened) {
+            return;
+        }
+
+
+        lockHasOpened = true;
+
+
+        /* -----------------------------------------
+           Open lock
+        ----------------------------------------- */
+
+        heartLock.classList.add(
+            "unlocking"
+        );
+
+
+        /* -----------------------------------------
+           Big heart burst
+        ----------------------------------------- */
+
+        createHeartRayWave(
+            true
+        );
+
+
+        /* -----------------------------------------
+           Fade Page 1
+           + show Page 2
+        ----------------------------------------- */
+
+        setTimeout(() => {
+
+            lockScreen.classList.add(
+                "transitioning"
+            );
+
+
+            letterPage.classList.add(
+                "visible"
+            );
+
+        }, 650);
+
     }
+);
 
-
-    lockHasOpened = true;
-
-
-    /* -----------------------------------------
-       Open lock
-    ----------------------------------------- */
-
-    heartLock.classList.add(
-        "unlocking"
-    );
-
-
-    /* -----------------------------------------
-       Big heart burst
-    ----------------------------------------- */
-
-    createHeartRayWave(true);
-
-
-    /* -----------------------------------------
-       Fade Page 1 + show Page 2
-    ----------------------------------------- */
-
-    setTimeout(() => {
-
-        lockScreen.classList.add(
-            "transitioning"
-        );
-
-
-        letterPage.classList.add(
-            "visible"
-        );
-
-    }, 650);
-
-});
 
 /* =====================================================
    LETTER -> SURPRISE PAGE
 ===================================================== */
 
-continueButton.addEventListener("click", (event) => {
+continueButton.addEventListener(
+    "click",
+    (event) => {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    letterPage.classList.remove("visible");
 
-    setTimeout(() => {
+        letterPage.classList.remove(
+            "visible"
+        );
 
-        surprisePage.classList.add("visible");
 
-    }, 350);
+        setTimeout(() => {
 
-});
+            surprisePage.classList.add(
+                "visible"
+            );
+
+        }, 350);
+
+    }
+);
 
 
 /* =====================================================
@@ -613,70 +625,84 @@ let currentGift = 1;
 
 
 /* =====================================================
-   GIFT 1
+   GIFT 1 -> HINT PAGE
 ===================================================== */
 
-giftOne.addEventListener("click", () => {
+giftOne.addEventListener(
+    "click",
+    () => {
 
-    currentGift = 1;
+        currentGift = 1;
 
-    surprisePage.classList.remove(
-        "visible"
-    );
 
-    setTimeout(() => {
-
-        hintPage.classList.add(
+        surprisePage.classList.remove(
             "visible"
         );
 
-    }, 300);
 
-});
+        setTimeout(() => {
+
+            hintPage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
 
 
 /* =====================================================
-   GIFT 2
+   GIFT 2 -> HINT PAGE
 ===================================================== */
 
-giftTwo.addEventListener("click", () => {
+giftTwo.addEventListener(
+    "click",
+    () => {
 
-    currentGift = 2;
+        currentGift = 2;
 
-    surprisePage.classList.remove(
-        "visible"
-    );
 
-    setTimeout(() => {
-
-        hintPage.classList.add(
+        surprisePage.classList.remove(
             "visible"
         );
 
-    }, 300);
 
-});
+        setTimeout(() => {
+
+            hintPage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
 
 
 /* =====================================================
    HINT PAGE -> SURPRISE PAGE
 ===================================================== */
 
-hintBackButton.addEventListener("click", () => {
+hintBackButton.addEventListener(
+    "click",
+    () => {
 
-    hintPage.classList.remove(
-        "visible"
-    );
-
-    setTimeout(() => {
-
-        surprisePage.classList.add(
+        hintPage.classList.remove(
             "visible"
         );
 
-    }, 300);
 
-});
+        setTimeout(() => {
+
+            surprisePage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
 
 
 /* =====================================================
@@ -702,12 +728,15 @@ const videoData = {
    OPEN HINT VIDEO
 ===================================================== */
 
-function openHintVideo(hintNumber) {
+function openHintVideo(
+    hintNumber
+) {
 
     const gift =
         currentGift === 1
             ? videoData.gift1
             : videoData.gift2;
+
 
     const videoId =
         hintNumber === 1
@@ -715,17 +744,26 @@ function openHintVideo(hintNumber) {
             : gift.hint2;
 
 
+    /* Change title */
+
     videoTitle.textContent =
         "A little hint for you ♡";
 
+
+    /* Load YouTube video */
 
     youtubeVideo.src =
         `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
 
 
+    /* Hide hint page */
+
     hintPage.classList.remove(
         "visible"
     );
+
+
+    /* Show video page */
 
     setTimeout(() => {
 
@@ -739,45 +777,62 @@ function openHintVideo(hintNumber) {
 
 
 /* =====================================================
-   HINT 1
+   HINT 1 -> VIDEO
 ===================================================== */
 
-hintOne.addEventListener("click", () => {
+hintOne.addEventListener(
+    "click",
+    () => {
 
-    openHintVideo(1);
+        openHintVideo(1);
 
-});
+    }
+);
 
 
 /* =====================================================
-   HINT 2
+   HINT 2 -> VIDEO
 ===================================================== */
 
-hintTwo.addEventListener("click", () => {
+hintTwo.addEventListener(
+    "click",
+    () => {
 
-    openHintVideo(2);
+        openHintVideo(2);
 
-});
+    }
+);
 
 
 /* =====================================================
    VIDEO -> HINT PAGE
 ===================================================== */
 
-videoBackButton.addEventListener("click", () => {
+videoBackButton.addEventListener(
+    "click",
+    () => {
 
-    youtubeVideo.src = "";
+        /* Stop video */
 
-    videoPage.classList.remove(
-        "visible"
-    );
+        youtubeVideo.src = "";
 
-    setTimeout(() => {
 
-        hintPage.classList.add(
+        /* Hide video */
+
+        videoPage.classList.remove(
             "visible"
         );
 
-    }, 300);
 
-});
+        /* Return to hints */
+
+        setTimeout(() => {
+
+            hintPage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
