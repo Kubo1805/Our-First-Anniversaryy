@@ -41,6 +41,9 @@ const hintOne =
 const hintTwo =
     document.getElementById("hintTwo");
 
+const hintThree =
+    document.getElementById("hintThree");
+
 const videoPage =
     document.getElementById("videoPage");
 
@@ -53,17 +56,11 @@ const videoTitle =
 const videoBackButton =
     document.getElementById("videoBackButton");
 
-const hintThree =
-    document.getElementById("hintThree");
-
 const sunnyPage =
     document.getElementById("sunnyPage");
 
 const sunnyBackButton =
     document.getElementById("sunnyBackButton");
-
-const hintThree =
-    document.getElementById("hintThree");
 
 
 /* =====================================================
@@ -71,6 +68,7 @@ const hintThree =
 ===================================================== */
 
 const photoSources = [
+
     "images/photo1.jpg",
     "images/photo2.jpg",
     "images/photo3.jpg",
@@ -89,14 +87,11 @@ const photoSources = [
     "images/photo16.jpg",
     "images/photo17.jpg",
     "images/photo18.jpg"
+
 ];
 
 
 function createFloatingPhoto() {
-
-    /* =========================================
-       PHOTO CONTAINER
-    ========================================== */
 
     const photo =
         document.createElement("div");
@@ -104,9 +99,9 @@ function createFloatingPhoto() {
     photo.classList.add("photo");
 
 
-    /* =========================================
-       SVG HEART
-    ========================================== */
+    /* -----------------------------------------
+       SVG
+    ----------------------------------------- */
 
     const svg =
         document.createElementNS(
@@ -124,9 +119,9 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       UNIQUE HEART CLIP
-    ========================================== */
+    /* -----------------------------------------
+       Clip path
+    ----------------------------------------- */
 
     const defs =
         document.createElementNS(
@@ -134,17 +129,14 @@ function createFloatingPhoto() {
             "defs"
         );
 
-
     const clipPath =
         document.createElementNS(
             "http://www.w3.org/2000/svg",
             "clipPath"
         );
 
-
     const clipId =
         `heartClip-${Date.now()}-${Math.random()}`;
-
 
     clipPath.setAttribute(
         "id",
@@ -157,7 +149,6 @@ function createFloatingPhoto() {
             "http://www.w3.org/2000/svg",
             "path"
         );
-
 
     heartPath.setAttribute(
         "d",
@@ -173,7 +164,6 @@ function createFloatingPhoto() {
         `
     );
 
-
     clipPath.appendChild(
         heartPath
     );
@@ -183,16 +173,15 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       PHOTO IMAGE
-    ========================================== */
+    /* -----------------------------------------
+       Photo
+    ----------------------------------------- */
 
     const image =
         document.createElementNS(
             "http://www.w3.org/2000/svg",
             "image"
         );
-
 
     const source =
         photoSources[
@@ -229,16 +218,15 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       PINK HEART BORDER
-    ========================================== */
+    /* -----------------------------------------
+       Pink border
+    ----------------------------------------- */
 
     const borderHeart =
         document.createElementNS(
             "http://www.w3.org/2000/svg",
             "path"
         );
-
 
     borderHeart.setAttribute(
         "d",
@@ -254,18 +242,15 @@ function createFloatingPhoto() {
         `
     );
 
-
     borderHeart.setAttribute(
         "fill",
         "#ff9fc8"
     );
 
-
     borderHeart.setAttribute(
         "stroke",
         "#f47eaa"
     );
-
 
     borderHeart.setAttribute(
         "stroke-width",
@@ -273,9 +258,9 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       BUILD SVG
-    ========================================== */
+    /* -----------------------------------------
+       Build
+    ----------------------------------------- */
 
     svg.appendChild(
         defs
@@ -298,26 +283,20 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       RANDOM POSITION
-    ========================================== */
+    /* -----------------------------------------
+       Random values
+    ----------------------------------------- */
 
     const left =
         Math.random() * 100;
-
 
     photo.style.left =
         `${left}%`;
 
 
-    /* =========================================
-       RANDOM SIZE
-    ========================================== */
-
     const size =
         130 +
         Math.random() * 100;
-
 
     photo.style.setProperty(
         "--size",
@@ -325,14 +304,9 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       RANDOM SPEED
-    ========================================== */
-
     const duration =
         9 +
         Math.random() * 8;
-
 
     photo.style.setProperty(
         "--duration",
@@ -340,14 +314,9 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       RANDOM ROTATION
-    ========================================== */
-
     const rotation =
         -12 +
         Math.random() * 24;
-
 
     photo.style.setProperty(
         "--rotation",
@@ -355,14 +324,9 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       RANDOM SIDEWAYS DRIFT
-    ========================================== */
-
     const drift =
         -80 +
         Math.random() * 160;
-
 
     photo.style.setProperty(
         "--drift",
@@ -370,9 +334,9 @@ function createFloatingPhoto() {
     );
 
 
-    /* =========================================
-       REMOVE WHEN FINISHED
-    ========================================== */
+    /* -----------------------------------------
+       Cleanup
+    ----------------------------------------- */
 
     setTimeout(() => {
 
@@ -389,9 +353,11 @@ function createFloatingPhoto() {
 
 function startPhotoStream() {
 
-    /* Initial batch */
-
-    for (let i = 0; i < 6; i++) {
+    for (
+        let i = 0;
+        i < 6;
+        i++
+    ) {
 
         setTimeout(() => {
 
@@ -401,8 +367,6 @@ function startPhotoStream() {
 
     }
 
-
-    /* Continuous stream */
 
     setInterval(() => {
 
@@ -430,7 +394,11 @@ function createHeartRayWave(
             : 8;
 
 
-    for (let i = 0; i < numberOfHearts; i++) {
+    for (
+        let i = 0;
+        i < numberOfHearts;
+        i++
+    ) {
 
         const heart =
             document.createElement("span");
@@ -439,16 +407,15 @@ function createHeartRayWave(
             "ray-heart"
         );
 
-        heart.textContent = "♡";
+        heart.textContent =
+            "♡";
 
-
-        /* -----------------------------------------
-           Direction
-        ----------------------------------------- */
 
         const angle =
-            (Math.PI * 2 / numberOfHearts) *
-            i;
+            (
+                Math.PI * 2 /
+                numberOfHearts
+            ) * i;
 
 
         const baseDistance =
@@ -472,10 +439,6 @@ function createHeartRayWave(
             distance;
 
 
-        /* -----------------------------------------
-           CSS Variables
-        ----------------------------------------- */
-
         heart.style.setProperty(
             "--x",
             `${x}px`
@@ -496,18 +459,10 @@ function createHeartRayWave(
             `${Math.random() * 0.25}s`;
 
 
-        /* -----------------------------------------
-           Add heart
-        ----------------------------------------- */
-
         heartRays.appendChild(
             heart
         );
 
-
-        /* -----------------------------------------
-           Cleanup
-        ----------------------------------------- */
 
         setTimeout(() => {
 
@@ -520,16 +475,12 @@ function createHeartRayWave(
 }
 
 
-/* =====================================================
-   INITIAL HEART WAVE
-===================================================== */
+/* Initial wave */
 
 createHeartRayWave();
 
 
-/* =====================================================
-   REPEATING HEART WAVES
-===================================================== */
+/* Repeating waves */
 
 setInterval(() => {
 
@@ -549,10 +500,6 @@ heartLock.addEventListener(
     "click",
     () => {
 
-        /* -----------------------------------------
-           Prevent repeated taps
-        ----------------------------------------- */
-
         if (lockHasOpened) {
             return;
         }
@@ -561,35 +508,21 @@ heartLock.addEventListener(
         lockHasOpened = true;
 
 
-        /* -----------------------------------------
-           Open lock
-        ----------------------------------------- */
-
         heartLock.classList.add(
             "unlocking"
         );
 
-
-        /* -----------------------------------------
-           Big heart burst
-        ----------------------------------------- */
 
         createHeartRayWave(
             true
         );
 
 
-        /* -----------------------------------------
-           Fade Page 1
-           + show Page 2
-        ----------------------------------------- */
-
         setTimeout(() => {
 
             lockScreen.classList.add(
                 "transitioning"
             );
-
 
             letterPage.classList.add(
                 "visible"
@@ -602,7 +535,7 @@ heartLock.addEventListener(
 
 
 /* =====================================================
-   LETTER -> SURPRISE PAGE
+   LETTER -> SURPRISE
 ===================================================== */
 
 continueButton.addEventListener(
@@ -630,7 +563,7 @@ continueButton.addEventListener(
 
 
 /* =====================================================
-   GIFT / HINT / VIDEO NAVIGATION
+   GIFT / HINT SYSTEM
 ===================================================== */
 
 let currentGift = 1;
@@ -640,45 +573,69 @@ let currentGift = 1;
    GIFT 1 -> HINT PAGE
 ===================================================== */
 
-giftOne.addEventListener("click", () => {
+giftOne.addEventListener(
+    "click",
+    () => {
 
-    currentGift = 1;
+        currentGift = 1;
 
-    /* Hide Hint 3 */
-    hintThree.style.display = "none";
 
-    surprisePage.classList.remove("visible");
+        /* Hide HINT 3 */
 
-    setTimeout(() => {
+        hintThree.style.display =
+            "none";
 
-        hintPage.classList.add("visible");
 
-    }, 300);
+        surprisePage.classList.remove(
+            "visible"
+        );
 
-});
 
+        setTimeout(() => {
+
+            hintPage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
 
 
 /* =====================================================
    GIFT 2 -> HINT PAGE
 ===================================================== */
 
-giftTwo.addEventListener("click", () => {
+giftTwo.addEventListener(
+    "click",
+    () => {
 
-    currentGift = 2;
+        currentGift = 2;
 
-    /* Show Hint 3 */
-    hintThree.style.display = "block";
 
-    surprisePage.classList.remove("visible");
+        /* Show HINT 3 */
 
-    setTimeout(() => {
+        hintThree.style.display =
+            "block";
 
-        hintPage.classList.add("visible");
 
-    }, 300);
+        surprisePage.classList.remove(
+            "visible"
+        );
 
-});
+
+        setTimeout(() => {
+
+            hintPage.classList.add(
+                "visible"
+            );
+
+        }, 300);
+
+    }
+);
+
 
 /* =====================================================
    HINT PAGE -> SURPRISE PAGE
@@ -712,13 +669,24 @@ hintBackButton.addEventListener(
 const videoData = {
 
     gift1: {
-        hint1: "x6R9nIiWXbQ",
-        hint2: "Qwrto3XBwRY"
+
+        hint1:
+            "x6R9nIiWXbQ",
+
+        hint2:
+            "Qwrto3XBwRY"
+
     },
 
+
     gift2: {
-        hint1: "AsiWL5qVb5U",
-        hint2: "zA012OwAQdc"
+
+        hint1:
+            "AsiWL5qVb5U",
+
+        hint2:
+            "zA012OwAQdc"
+
     }
 
 };
@@ -744,26 +712,18 @@ function openHintVideo(
             : gift.hint2;
 
 
-    /* Change title */
-
     videoTitle.textContent =
-        "A little hint for you ♡";
+        "A little hint for my princess ♡";
 
-
-    /* Load YouTube video */
 
     youtubeVideo.src =
         `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
 
 
-    /* Hide hint page */
-
     hintPage.classList.remove(
         "visible"
     );
 
-
-    /* Show video page */
 
     setTimeout(() => {
 
@@ -780,46 +740,29 @@ function openHintVideo(
    HINT 1 -> VIDEO
 ===================================================== */
 
-hintOne.addEventListener("click", () => {
+hintOne.addEventListener(
+    "click",
+    () => {
 
-    youtubeVideo.src =
-        "https://www.youtube-nocookie.com/embed/x6R9nIiWXbQ?rel=0";
+        openHintVideo(1);
 
-    videoTitle.textContent =
-        "A little hint for my princess ♡";
-
-    hintPage.classList.remove("visible");
-
-    setTimeout(() => {
-
-        videoPage.classList.add("visible");
-
-    }, 300);
-
-});
+    }
+);
 
 
 /* =====================================================
    HINT 2 -> VIDEO
 ===================================================== */
 
-hintTwo.addEventListener("click", () => {
+hintTwo.addEventListener(
+    "click",
+    () => {
 
-    youtubeVideo.src =
-        "https://www.youtube-nocookie.com/embed/Qwrto3XBwRY?rel=0";
+        openHintVideo(2);
 
-    videoTitle.textContent =
-        "A little hint for my princess ♡";
+    }
+);
 
-    hintPage.classList.remove("visible");
-
-    setTimeout(() => {
-
-        videoPage.classList.add("visible");
-
-    }, 300);
-
-});
 
 /* =====================================================
    VIDEO -> HINT PAGE
@@ -829,19 +772,14 @@ videoBackButton.addEventListener(
     "click",
     () => {
 
-        /* Stop video */
+        youtubeVideo.src =
+            "";
 
-        youtubeVideo.src = "";
-
-
-        /* Hide video */
 
         videoPage.classList.remove(
             "visible"
         );
 
-
-        /* Return to hints */
 
         setTimeout(() => {
 
@@ -853,6 +791,7 @@ videoBackButton.addEventListener(
 
     }
 );
+
 
 /* =====================================================
    HINT 3 -> SUNNY BOY
@@ -877,6 +816,7 @@ hintThree.addEventListener(
 
     }
 );
+
 
 /* =====================================================
    SUNNY BOY -> HINT PAGE
